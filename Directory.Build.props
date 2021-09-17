@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+
+    <!--<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    <LangVersion>latest</LangVersion>-->
+
+
+    <MSBuildWarningsAsMessages>MSB3246</MSBuildWarningsAsMessages>
+
+    <ProjectName Condition=" '$(ProjectName)' == '' ">$(MSBuildProjectName)</ProjectName>
+    <BaseOutputPath>$([System.IO.Path]::GetFullPath('$(SolutionDir)build'))</BaseOutputPath>
+    <OutputPath>$(BaseOutputPath)\$(Configuration)\$(ProjectName)</OutputPath>
+    <BaseIntermediateOutputPath>$(BaseOutputPath)\obj\$(ProjectName)</BaseIntermediateOutputPath>
+
+    <!--<PropertyGroup Label="UserMacros">
+      <RepositoryRoot>$(SolutionDir)\..</RepositoryRoot>
+      <ProjectsDir>$(RepositoryRoot)\projects</ProjectsDir>
+      <ThirdPartyDir>$(RepositoryRoot)\..\ThirdParty</ThirdPartyDir>
+      <ProtoBufRoot>$(ThirdPartyDir)\protobuf\src</ProtoBufRoot>
+    </PropertyGroup>-->
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+  </ItemGroup>
+
+</Project>
