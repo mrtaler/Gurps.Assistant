@@ -1,0 +1,55 @@
+{
+  "tagFormat": "v${version}",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "releaseRules": "./SemanticVersioning/release-rules.js",
+        "parserOpts": "./SemanticVersioning/parserOpts.js"
+      }
+    ],
+
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# Project Changelog"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "package.json"
+        ],
+        "message": "release(version): Release ${nextRelease.version} \n\n${nextRelease.notes}"
+      }
+    ],
+    [
+      "@semantic-release/github"
+    ]
+  ],
+
+  "branches": [
+    {
+      "name": "master"
+    },
+    {
+      "name": "hotfix/*",
+      "channel": "hotfix/*",
+      "prerelease": "hotfix"
+    },
+    {
+      "name": "develop",
+      "channel": "develop",
+      "prerelease": "release-candidate"
+    },
+    {
+      "name": "feature/*",
+      "channel": "feature/*",
+      "prerelease": "feature-develop"
+    }
+  ]
+}
