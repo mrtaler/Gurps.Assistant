@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!--<Import Project="$(SolutionPath)\Directory.Build.props" Condition="Exists('$(SolutionPath)\Directory.Build.props')" />-->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+  <ItemGroup Label="ExcludeTestResults" >
+    <Compile Remove="TestResults\**" />
+    <EmbeddedResource Remove="TestResults\**" />
+    <None Remove="TestResults\**" />
+  </ItemGroup>
+
+  <PropertyGroup Label="CollectCodeCoverageResultsOnRelease">
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
+    <CoverletOutput>TestResults\Coverage\</CoverletOutput>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.assert" Version="2.4.1" />
+    <PackageReference Include="coverlet.collector" Version="3.1.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+
+    <PackageReference Include="Moq" Version="4.16.1" />
+    <PackageReference Include="Moq.AutoMock" Version="3.0.0" />
+    <PackageReference Include="FluentAssertions" Version="6.1.0" />
+    <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
+
+    <PackageReference Include="AutoFixture" Version="4.17.0" />
+  </ItemGroup>
+
+</Project>
+<!--Coverlet needs full debug symbols-->
