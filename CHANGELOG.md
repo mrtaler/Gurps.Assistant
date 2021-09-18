@@ -1,5 +1,16 @@
 # Project Changelog
 
+## [1.0.0-release-candidate.16]() (2021-09-18)
+
+
+### Miscellaneous
+
+* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([412381b]())
+
+### Continuous Integration
+
+* update pipeline for manual .net build ([0dba8e8]())
+
 ## [1.0.0-release-candidate.15]() (2021-09-18)
 
 
