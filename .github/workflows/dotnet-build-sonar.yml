@@ -93,7 +93,7 @@ jobs:
           echo env.NUGET_VERSION
       
       - name: Build and analyze
-        uses: codecov/codecov-action@v1
+        #uses: codecov/codecov-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
