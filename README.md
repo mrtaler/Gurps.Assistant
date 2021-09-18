@@ -33,5 +33,14 @@ npx semantic-release-cli setup
 |||@semantic-release/changelog||
 |||@commitlint/cli||
 |||@commitlint/config-conventional|echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js|
-||npm install husky --save-dev|npx husky install|npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'|
+|
 
+|npm install husky --save-dev
+|npx husky install
+|npm set-script prepare "husky install"
+|yarn husky add .husky/pre-commit "npm test"
+|(https://typicode.github.io/husky/#/?id=automatic-recommended)
+
+npm install --save-dev @commitlint/cli
+npm install --save-dev @commitlint/config-conventional
+npm install --save-dev @commitlint/prompt-cli
