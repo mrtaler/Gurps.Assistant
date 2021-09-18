@@ -14,8 +14,8 @@
 
     <ProjectName Condition=" '$(ProjectName)' == '' ">$(MSBuildProjectName)</ProjectName>
     <BaseOutputPath>$([System.IO.Path]::GetFullPath('$(SolutionDir)build'))</BaseOutputPath>
-    <OutputPath>$(BaseOutputPath)\$(Configuration)\$(ProjectName)</OutputPath>
-    <BaseIntermediateOutputPath>$(BaseOutputPath)\obj\$(ProjectName)</BaseIntermediateOutputPath>
+                    <OutputPath>$(BaseOutputPath)\bin\$(Configuration)\$(ProjectName)</OutputPath>
+    <BaseIntermediateOutputPath>$(BaseOutputPath)\obj\$(Configuration)\$(ProjectName)</BaseIntermediateOutputPath>
 
     <!--<PropertyGroup Label="UserMacros">
       <RepositoryRoot>$(SolutionDir)\..</RepositoryRoot>
@@ -27,9 +27,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.0.0" />
+    <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="Serilog" Version="2.10.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" />
   </ItemGroup>
 
 </Project>
