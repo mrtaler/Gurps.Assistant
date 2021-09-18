@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SemanticVersioning", "Seman
 		SemanticVersioning\template.hbs = SemanticVersioning\template.hbs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectConfiguration", "ProjectConfiguration", "{BA324555-7694-4887-947F-9375A1BAF9A0}"
 	ProjectSection(SolutionItems) = preProject
@@ -39,13 +39,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectConfiguration", "Pro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D72149E-2108-4929-88DD-C632867B70E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.UnitTests", "test\Gurps.Assistant.Domain.UnitTests\Gurps.Assistant.Domain.UnitTests.csproj", "{8589AC01-090D-4A9C-9269-37832DFEB221}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.UnitTests", "test\Gurps.Assistant.Domain.UnitTests\Gurps.Assistant.Domain.UnitTests.csproj", "{8589AC01-090D-4A9C-9269-37832DFEB221}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConfiguration", "TestConfiguration", "{4C241A49-0CB7-41AF-A8BA-3CEADB55974B}"
 	ProjectSection(SolutionItems) = preProject
 		test\Directory.Build.props = test\Directory.Build.props
 		test\Directory.Build.targets = test\Directory.Build.targets
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository", "src\Domain\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj", "{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.RavenDb", "src\Domain\Gurps.Assistant.Domain.Repository.RavenDb\Gurps.Assistant.Domain.Repository.RavenDb.csproj", "{9B753B60-C195-4C87-951A-213DF30564CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.MongoDb", "src\Domain\Gurps.Assistant.Domain.Repository.MongoDb\Gurps.Assistant.Domain.Repository.MongoDb.csproj", "{A349175C-323E-4FF2-8C15-84E61A68055F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.EntityFrameworkCore", "src\Domain\Gurps.Assistant.Domain.Repository.EntityFrameworkCore\Gurps.Assistant.Domain.Repository.EntityFrameworkCore.csproj", "{71C474CD-F5CF-4A27-97E2-4B176494BFE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +69,22 @@ Global
 		{8589AC01-090D-4A9C-9269-37832DFEB221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +96,10 @@ Global
 		{BA324555-7694-4887-947F-9375A1BAF9A0} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{8589AC01-090D-4A9C-9269-37832DFEB221} = {9D72149E-2108-4929-88DD-C632867B70E4}
 		{4C241A49-0CB7-41AF-A8BA-3CEADB55974B} = {BA324555-7694-4887-947F-9375A1BAF9A0}
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{9B753B60-C195-4C87-951A-213DF30564CE} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{A349175C-323E-4FF2-8C15-84E61A68055F} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}

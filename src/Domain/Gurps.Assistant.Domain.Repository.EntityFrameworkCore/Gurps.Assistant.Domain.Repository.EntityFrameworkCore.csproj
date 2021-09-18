@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\Nuget.Default.props" />
+  <PropertyGroup>
+    <UseFxCopAnalyzers>false</UseFxCopAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj" />
+  </ItemGroup>
+</Project>
