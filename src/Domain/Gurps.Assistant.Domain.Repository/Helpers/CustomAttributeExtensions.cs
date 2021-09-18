@@ -8,9 +8,7 @@ namespace Gurps.Assistant.Domain.Repository.Helpers
 
     public static T GetOneAttribute<T>(this Assembly assembly) where T : Attribute
     {
-      T[] attributes = assembly.GetCustomAttributes(typeof(T)) as T[];
-
-      if (attributes == null || attributes.Length == 0)
+      if (assembly.GetCustomAttributes(typeof(T)) is not T[] attributes || attributes.Length == 0)
         return null;
       else
         return attributes[0];

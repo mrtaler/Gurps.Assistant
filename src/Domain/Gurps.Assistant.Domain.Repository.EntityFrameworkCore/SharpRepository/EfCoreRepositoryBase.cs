@@ -12,7 +12,7 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
       where T : class
   {
     protected DbSet<T> DbSet { get; private set; }
-    private ICoreDbContext context;
+    private readonly ICoreDbContext context;
     internal EfCoreRepositoryBase(
        ICoreDbContext contextFactory,
         ICachingStrategy<T, TKey> cachingStrategy = null)
@@ -26,8 +26,7 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
     {
       if (typeof(TKey) == typeof(Guid) || typeof(TKey) == typeof(string))
       {
-        TKey id;
-        if (GetPrimaryKey(entity, out id) && Equals(id, default(TKey)))
+        if (GetPrimaryKey(entity, out TKey id) && Equals(id, default(TKey)))
         {
           id = GeneratePrimaryKey();
           SetPrimaryKey(entity, id);
@@ -50,9 +49,8 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
       {
         if (entry.State == EntityState.Detached)
         {
-          TKey key;
 
-          if (GetPrimaryKey(entity, out key))
+          if (GetPrimaryKey(entity, out TKey key))
           {
             // check to see if this item is already attached
             //  if it is then we need to copy the values to the attached value instead of changing the State to modified since it will throw a duplicate key exception

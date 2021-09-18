@@ -9,7 +9,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessAdd(entity);
     }
@@ -25,7 +25,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(IEnumerable<T> entities)
     {
-      if (entities == null) throw new ArgumentNullException("entities");
+      if (entities == null) throw new ArgumentNullException(nameof(entities));
 
       foreach (var entity in entities)
       {
@@ -40,7 +40,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessAdd(entity);
     }
@@ -56,7 +56,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(IEnumerable<T> entities)
     {
-      if (entities == null) throw new ArgumentNullException("entities");
+      if (entities == null) throw new ArgumentNullException(nameof(entities));
 
       foreach (var entity in entities)
       {
@@ -70,7 +70,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessAdd(entity);
     }
@@ -86,7 +86,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Add(IEnumerable<T> entities)
     {
-      if (entities == null) throw new ArgumentNullException("entities");
+      if (entities == null) throw new ArgumentNullException(nameof(entities));
 
       foreach (var entity in entities)
       {

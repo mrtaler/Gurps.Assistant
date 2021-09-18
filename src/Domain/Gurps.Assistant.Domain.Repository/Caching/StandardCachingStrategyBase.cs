@@ -161,9 +161,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || entity == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var partitionName = partitionExpression.Member.Name;
@@ -189,9 +188,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || criteria == null || criteria.Predicate == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var matches = new List<TPartition>();

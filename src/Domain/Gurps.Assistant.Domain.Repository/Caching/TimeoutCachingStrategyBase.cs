@@ -43,9 +43,9 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       {
         CachingProvider.Set(cacheKey, result, CacheItemPriority.Normal, TimeoutInSeconds);
 
-        if (queryOptions is IPagingOptions)
+        if (queryOptions is IPagingOptions options)
         {
-          CachingProvider.Set(cacheKey + "=>pagingTotal", ((IPagingOptions)queryOptions).TotalItems, CacheItemPriority.Normal, TimeoutInSeconds);
+          CachingProvider.Set(cacheKey + "=>pagingTotal", options.TotalItems, CacheItemPriority.Normal, TimeoutInSeconds);
         }
       }
       catch (Exception)

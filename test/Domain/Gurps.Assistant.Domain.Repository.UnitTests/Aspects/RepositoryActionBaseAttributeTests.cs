@@ -22,7 +22,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Aspects
 
       //Act
       repository.SuppressAudit();
-      var product = repository.Get(1);
+      _ = repository.Get(1);
 
 
       //Assert
@@ -46,7 +46,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Aspects
       //Act
       repository.SuppressAudit();
       repository.RestoreAudit();
-      var product = repository.Get(1);
+      _ = repository.Get(1);
 
 
       //Assert

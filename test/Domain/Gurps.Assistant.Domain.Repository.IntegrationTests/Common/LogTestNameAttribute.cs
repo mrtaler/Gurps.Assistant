@@ -14,7 +14,7 @@ namespace Gurps.Assistant.Domain.Repository.IntegrationTests.Common
   internal sealed class LogTestNameAttribute : BeforeAfterTestAttribute
   {
     private static readonly ConcurrentDictionary<string, IDisposable> Disposables =
-        new ConcurrentDictionary<string, IDisposable>();
+        new();
 
     public override void Before(MethodInfo methodUnderTest)
     {

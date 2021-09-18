@@ -12,7 +12,7 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
 
   {
     protected DbSet<T> DbSet { get; private set; }
-    private ICoreDbContext context;
+    private readonly ICoreDbContext context;
 
 
     internal EfCoreCompoundKeyRepositoryBase(ICoreDbContext contextFactory, ICompoundKeyCachingStrategy<T> cachingStrategy = null)
@@ -39,9 +39,8 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
 
       if (entry.State == EntityState.Detached)
       {
-        object[] keys;
 
-        if (GetPrimaryKeys(entity, out keys))
+        if (GetPrimaryKeys(entity, out object[] keys))
         {
           // check to see if this item is already attached
           //  if it is then we need to copy the values to the attached value instead of changing the State to modified since it will throw a duplicate key exception
@@ -92,7 +91,7 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
       where T : class
   {
     protected DbSet<T> DbSet { get; private set; }
-    private ICoreDbContext context;
+    private readonly ICoreDbContext context;
 
 
     internal EfCoreCompoundKeyRepositoryBase(ICoreDbContext contextFactory, ICompoundKeyCachingStrategy<T, TKey, TKey2> cachingStrategy = null)
@@ -118,10 +117,8 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
 
       if (entry.State == EntityState.Detached)
       {
-        TKey key;
-        TKey2 key2;
 
-        if (GetPrimaryKey(entity, out key, out key2))
+        if (GetPrimaryKey(entity, out TKey key, out TKey2 key2))
         {
           // check to see if this item is already attached
           //  if it is then we need to copy the values to the attached value instead of changing the State to modified since it will throw a duplicate key exception
@@ -198,11 +195,8 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository
 
       if (entry.State == EntityState.Detached)
       {
-        TKey key;
-        TKey2 key2;
-        TKey3 key3;
 
-        if (GetPrimaryKey(entity, out key, out key2, out key3))
+        if (GetPrimaryKey(entity, out TKey key, out TKey2 key2, out TKey3 key3))
         {
           // check to see if this item is already attached
           //  if it is then we need to copy the values to the attached value instead of changing the State to modified since it will throw a duplicate key exception

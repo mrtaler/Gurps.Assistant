@@ -127,7 +127,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> GetAll<TResult>(Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, IFetchStrategy<T> fetchStrategy)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGetAll(
@@ -165,7 +165,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Get<TResult>(Expression<Func<T, TResult>> selector, params object[] keys)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGet(
@@ -173,7 +173,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
           {
             var result = GetQuery(keys);
             if (result == null)
-              return default(TResult);
+              return default;
 
             var results = new[] { result };
             return results.AsEnumerable().Select(selectFunc).First();
@@ -185,12 +185,12 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(params object[] keys)
     {
-      return TryGet(out T entity, keys);
+      return TryGet(out _, keys);
     }
 
     public bool TryGet(out T entity, params object[] keys)
     {
-      entity = default(T);
+      entity = default;
 
       try
       {
@@ -209,7 +209,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFindAll(
           () => FindAllQuery(criteria, queryOptions).ToList(),
@@ -221,7 +221,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> FindAll<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFindAll(
@@ -234,15 +234,15 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return FindAll(new Specification<T>(predicate), queryOptions);
     }
 
     public IEnumerable<TResult> FindAll<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return FindAll(new Specification<T>(predicate), selector, queryOptions);
     }
@@ -253,7 +253,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFind(
           () => FindQuery(criteria, queryOptions),
@@ -265,8 +265,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Find<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFind(
@@ -274,7 +274,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
           {
             var result = FindQuery(criteria, queryOptions);
             if (result == null)
-              return default(TResult);
+              return default;
 
             var results = new[] { result };
             return results.AsEnumerable().Select(selectFunc).First();
@@ -287,7 +287,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(ISpecification<T> criteria)
     {
-      return TryFind(criteria, out T entity);
+      return TryFind(criteria, out _);
     }
 
     public bool TryFind(ISpecification<T> criteria, out T entity)
@@ -317,7 +317,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -332,22 +332,22 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return Find(new Specification<T>(predicate), queryOptions);
     }
 
     public TResult Find<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return Find(new Specification<T>(predicate), selector, queryOptions);
     }
 
     public bool Exists(Expression<Func<T, bool>> predicate)
     {
-      return TryFind(predicate, out T entity);
+      return TryFind(predicate, out _);
     }
 
     public bool TryFind(Expression<Func<T, bool>> predicate, out T entity)
@@ -377,7 +377,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -587,7 +587,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> GetAll<TResult>(Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, IFetchStrategy<T> fetchStrategy)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGetAll(
@@ -626,7 +626,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Get<TResult>(TKey key, TKey2 key2, Expression<Func<T, TResult>> selector)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGet(
@@ -634,7 +634,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
           {
             var result = GetQuery(key, key2);
             if (result == null)
-              return default(TResult);
+              return default;
 
             var results = new[] { result };
             return results.AsEnumerable().Select(selectFunc).First();
@@ -647,12 +647,12 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(TKey key, TKey2 key2)
     {
-      return TryGet(key, key2, out T entity);
+      return TryGet(key, key2, out _);
     }
 
     public bool TryGet(TKey key, TKey2 key2, out T entity)
     {
-      entity = default(T);
+      entity = default;
 
       try
       {
@@ -667,7 +667,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryGet<TResult>(TKey key, TKey2 key2, Expression<Func<T, TResult>> selector, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -686,7 +686,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFindAll(
           () => FindAllQuery(criteria, queryOptions).ToList(),
@@ -698,7 +698,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> FindAll<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFindAll(
@@ -711,15 +711,15 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return FindAll(new Specification<T>(predicate), queryOptions);
     }
 
     public IEnumerable<TResult> FindAll<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return FindAll(new Specification<T>(predicate), selector, queryOptions);
     }
@@ -730,7 +730,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFind(
           () => FindQuery(criteria, queryOptions),
@@ -742,8 +742,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Find<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFind(
@@ -751,7 +751,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
               {
                 var result = FindQuery(criteria, queryOptions);
                 if (result == null)
-                  return default(TResult);
+                  return default;
 
                 var results = new[] { result };
                 return results.AsEnumerable().Select(selectFunc).First();
@@ -764,7 +764,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(ISpecification<T> criteria)
     {
-      return TryFind(criteria, out T entity);
+      return TryFind(criteria, out _);
     }
 
     public bool TryFind(ISpecification<T> criteria, out T entity)
@@ -794,7 +794,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -809,22 +809,22 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return Find(new Specification<T>(predicate), queryOptions);
     }
 
     public TResult Find<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return Find(new Specification<T>(predicate), selector, queryOptions);
     }
 
     public bool Exists(Expression<Func<T, bool>> predicate)
     {
-      return TryFind(predicate, out T entity);
+      return TryFind(predicate, out _);
     }
 
     public bool TryFind(Expression<Func<T, bool>> predicate, out T entity)
@@ -854,7 +854,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -871,8 +871,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     protected virtual bool GetPrimaryKey(T entity, out TKey key, out TKey2 key2)
     {
-      key = default(TKey);
-      key2 = default(TKey2);
+      key = default;
+      key2 = default;
 
       var propInfo = GetPrimaryKeyPropertyInfo();
 
@@ -1055,7 +1055,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> GetAll<TResult>(Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, IFetchStrategy<T> fetchStrategy)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGetAll(
@@ -1095,7 +1095,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Get<TResult>(TKey key, TKey2 key2, TKey3 key3, Expression<Func<T, TResult>> selector)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteGet(
@@ -1103,7 +1103,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
           {
             var result = GetQuery(key, key2, key3);
             if (result == null)
-              return default(TResult);
+              return default;
 
             var results = new[] { result };
             return results.AsEnumerable().Select(selectFunc).First();
@@ -1117,12 +1117,12 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(TKey key, TKey2 key2, TKey3 key3)
     {
-      return TryGet(key, key2, key3, out T entity);
+      return TryGet(key, key2, key3, out _);
     }
 
     public bool TryGet(TKey key, TKey2 key2, TKey3 key3, out T entity)
     {
-      entity = default(T);
+      entity = default;
 
       try
       {
@@ -1137,7 +1137,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryGet<TResult>(TKey key, TKey2 key2, TKey3 key3, Expression<Func<T, TResult>> selector, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -1156,7 +1156,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFindAll(
           () => FindAllQuery(criteria, queryOptions).ToList(),
@@ -1168,7 +1168,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<TResult> FindAll<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFindAll(
@@ -1181,15 +1181,15 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public IEnumerable<T> FindAll(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return FindAll(new Specification<T>(predicate), queryOptions);
     }
 
     public IEnumerable<TResult> FindAll<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return FindAll(new Specification<T>(predicate), selector, queryOptions);
     }
@@ -1200,7 +1200,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(ISpecification<T> criteria, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
       return _queryManager.ExecuteFind(
           () => FindQuery(criteria, queryOptions),
@@ -1212,8 +1212,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public TResult Find<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (criteria == null) throw new ArgumentNullException("criteria");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (criteria == null) throw new ArgumentNullException(nameof(criteria));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       var selectFunc = selector.Compile();
 
       return _queryManager.ExecuteFind(
@@ -1221,7 +1221,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
               {
                 var result = FindQuery(criteria, queryOptions);
                 if (result == null)
-                  return default(TResult);
+                  return default;
 
                 var results = new[] { result };
                 return results.AsEnumerable().Select(selectFunc).First();
@@ -1234,7 +1234,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool Exists(ISpecification<T> criteria)
     {
-      return TryFind(criteria, out T entity);
+      return TryFind(criteria, out _);
     }
 
     public bool TryFind(ISpecification<T> criteria, out T entity)
@@ -1264,7 +1264,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -1279,22 +1279,22 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public T Find(Expression<Func<T, bool>> predicate, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
       return Find(new Specification<T>(predicate), queryOptions);
     }
 
     public TResult Find<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (predicate == null) throw new ArgumentNullException("predicate");
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
       return Find(new Specification<T>(predicate), selector, queryOptions);
     }
 
     public bool Exists(Expression<Func<T, bool>> predicate)
     {
-      return TryFind(predicate, out T entity);
+      return TryFind(predicate, out _);
     }
 
     public bool TryFind(Expression<Func<T, bool>> predicate, out T entity)
@@ -1324,7 +1324,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public bool TryFind<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -1343,9 +1343,9 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     protected virtual bool GetPrimaryKey(T entity, out TKey key, out TKey2 key2, out TKey3 key3)
     {
-      key = default(TKey);
-      key2 = default(TKey2);
-      key3 = default(TKey3);
+      key = default;
+      key2 = default;
+      key3 = default;
 
       var propInfo = GetPrimaryKeyPropertyInfo();
 

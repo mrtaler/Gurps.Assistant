@@ -14,11 +14,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       Cache = cache;
     }
 
-    private static readonly object LockObject = new object();
+    private static readonly object LockObject = new();
 
     public void Set<T>(string key, T value, CacheItemPriority priority = CacheItemPriority.Normal, int? cacheTime = null)
     {
-      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key");
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
 
       var policy = new MemoryCacheEntryOptions()
       {
@@ -34,20 +34,20 @@ namespace Gurps.Assistant.Domain.Repository.Caching
 
     public void Clear(string key)
     {
-      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key");
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
 
       Cache.Remove(key);
     }
 
     public bool Exists(string key)
     {
-      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key");
-      return Cache.TryGetValue(key, out object value);
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
+      return Cache.TryGetValue(key, out _);
     }
 
     public bool Get<T>(string key, out T value)
     {
-      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key");
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
 
       value = default;
 
@@ -69,7 +69,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
 
     public int Increment(string key, int defaultValue, int incrementValue, CacheItemPriority priority = CacheItemPriority.Normal)
     {
-      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key");
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
 
       lock (LockObject)
       {
@@ -84,9 +84,12 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       }
     }
 
+    protected virtual void Dispose(bool disposing) => Cache = new MemoryCache(new MemoryCacheOptions());
+
     public void Dispose()
     {
-      Cache = new MemoryCache(new MemoryCacheOptions());
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
   }
 }

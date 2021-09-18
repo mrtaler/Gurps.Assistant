@@ -11,7 +11,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (entity == null) throw new ArgumentNullException("entity");
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
 
         ProcessAdd(entity/*, BatchMode*/);
       }
@@ -48,7 +48,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (entities == null) throw new ArgumentNullException("entities");
+        if (entities == null) throw new ArgumentNullException(nameof(entities));
 
         // using (var batch = BeginBatch())
         //  {

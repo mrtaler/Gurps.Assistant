@@ -41,8 +41,7 @@ namespace Gurps.Assistant.Domain.Repository.IntegrationTests.Context
         Label = "asdasd"
       });
       uow.SaveChanges();
-
-      var tm1 = repo1.GetAll();
+      _ = repo1.GetAll();
     }
   }
 }

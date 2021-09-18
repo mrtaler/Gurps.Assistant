@@ -10,7 +10,7 @@ namespace Gurps.Assistant.Domain.Repository.Configuration
   /// </summary>
   public static class FastActivator
   {
-    private static readonly Dictionary<Type, Func<object>> factoryCache = new Dictionary<Type, Func<object>>();
+    private static readonly Dictionary<Type, Func<object>> factoryCache = new();
 
     /// <summary>
     /// Creates an instance of the specified type using a generated factory to avoid using Reflection.
@@ -29,9 +29,8 @@ namespace Gurps.Assistant.Domain.Repository.Configuration
     /// <returns>The newly created instance.</returns>
     public static object Create(Type type)
     {
-      Func<object> f;
 
-      if (!factoryCache.TryGetValue(type, out f))
+      if (!factoryCache.TryGetValue(type, out Func<object> f))
         lock (factoryCache)
           if (!factoryCache.TryGetValue(type, out f))
           {

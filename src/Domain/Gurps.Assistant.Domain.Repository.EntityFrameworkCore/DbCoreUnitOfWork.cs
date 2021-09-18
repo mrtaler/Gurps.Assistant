@@ -8,7 +8,7 @@ namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore
   public class DbCoreUnitOfWork<TContext> : UnitOfWorkBase<TContext, DbCoreContextFactory<TContext>>
         where TContext : DbContext, ICoreDbContext
   {
-    private DbContextOptions<TContext> options;
+    private readonly DbContextOptions<TContext> options;
     private bool isDisposed;
 
     public DbCoreUnitOfWork(DbContextOptions<TContext> options, DbCoreContextFactory<TContext> factory)

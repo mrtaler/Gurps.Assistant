@@ -19,25 +19,25 @@ namespace Gurps.Assistant.Domain.Repository.MongoDb.SharpRepository
   public class MongoDbRepositoryBase<T, TKey> : LinqRepositoryBase<T, TKey>
       where T : class, new()
   {
-    private IMongoCollection<T> collection;
-    static readonly object _lock = new object();
+    private readonly IMongoCollection<T> collection;
+    static readonly object _lock = new();
 
     private readonly Dictionary<Type, BsonType> _keyTypeToBsonType =
-        new Dictionary<Type, BsonType>
+        new()
         {
-                {typeof(string), BsonType.String},
-                {typeof(Guid), BsonType.ObjectId},
-                {typeof(ObjectId), BsonType.ObjectId},
-                {typeof(byte[]), BsonType.ObjectId}
+          { typeof(string), BsonType.String },
+          { typeof(Guid), BsonType.ObjectId },
+          { typeof(ObjectId), BsonType.ObjectId },
+          { typeof(byte[]), BsonType.ObjectId }
         };
 
     private readonly Dictionary<Type, IIdGenerator> _keyTypeToBsonGenerator =
-        new Dictionary<Type, IIdGenerator>
+        new()
         {
-                {typeof (string), new StringObjectIdGenerator() },
-                {typeof (Guid), new GuidGenerator()},
-                {typeof (ObjectId), new ObjectIdGenerator()},
-                {typeof(byte[]), new BsonBinaryDataGuidGenerator(GuidRepresentation.Standard)}
+          { typeof(string), new StringObjectIdGenerator() },
+          { typeof(Guid), new GuidGenerator() },
+          { typeof(ObjectId), new ObjectIdGenerator() },
+          { typeof(byte[]), new BsonBinaryDataGuidGenerator(GuidRepresentation.Standard) }
         };
 
     internal MongoDbRepositoryBase(IMongoCollection<T> collection, ICachingStrategy<T, TKey> cachingStrategy = null)
@@ -336,8 +336,14 @@ namespace Gurps.Assistant.Domain.Repository.MongoDb.SharpRepository
       }
     }
 
+    protected virtual void Dispose(bool disposing)
+    {
+    }
+
     public override void Dispose()
     {
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
 
     private static bool IsValidKey(TKey key)

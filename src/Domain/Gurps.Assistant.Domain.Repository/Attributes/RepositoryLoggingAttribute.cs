@@ -49,20 +49,20 @@ namespace Gurps.Assistant.Domain.Repository.Attributes
     public override bool OnAddExecuting<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Adding {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
       return true;
     }
 
     public override void OnAddExecuted<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Added {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
     }
 
     public override bool OnUpdateExecuting<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Updating {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
 
       return true;
     }
@@ -70,13 +70,13 @@ namespace Gurps.Assistant.Domain.Repository.Attributes
     public override void OnUpdateExecuted<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Updated {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
     }
 
     public override bool OnDeleteExecuting<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Deleting {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
 
       return true;
     }
@@ -84,7 +84,7 @@ namespace Gurps.Assistant.Domain.Repository.Attributes
     public override void OnDeleteExecuted<T, TKey>(T entity, RepositoryActionContext<T, TKey> context)
     {
       Log($"Deleted {typeof(T).Name} entity");
-      Log($"   {entity.ToString()}");
+      Log($"   {entity}");
     }
 
     public override bool OnSaveExecuting<T, TKey>(RepositoryActionContext<T, TKey> context)

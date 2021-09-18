@@ -96,7 +96,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
         _cachingStrategy = value ?? new NoCachingStrategy<T, TKey>();
         QueryManager = new QueryManager<T, TKey>(_cachingStrategy)
         {
-          CacheEnabled = !(_cachingStrategy is NoCachingStrategy<T, TKey>)
+          CacheEnabled = _cachingStrategy is not NoCachingStrategy<T, TKey>
         };
       }
     }
@@ -249,7 +249,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (selector == null) throw new ArgumentNullException("selector");
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
         var context = new RepositoryQueryMultipleContext<T, TKey, TResult>(this, null, queryOptions, selector);
         if (!RunAspect(attribute => attribute.OnGetAllExecuting(context)))
@@ -375,7 +375,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (selector == null) throw new ArgumentNullException("selector");
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
         var context = new RepositoryGetContext<T, TKey, TResult>(this, key, selector);
         if (!RunAspect(attribute => attribute.OnGetExecuting(context)))
@@ -390,7 +390,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
         // return the entity with the selector applied to it
         var selectFunc = selector.Compile();
         var selectedResult = result == null
-            ? default(TResult)
+            ? default
             : new[] { result }.AsEnumerable().Select(selectFunc).First();
 
         context.Result = selectedResult;
@@ -437,12 +437,12 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool Exists(TKey key)
     {
-      return TryGet(key, out T entity);
+      return TryGet(key, out _);
     }
 
     public bool TryGet(TKey key, out T entity)
     {
-      entity = default(T);
+      entity = default;
 
       try
       {
@@ -457,9 +457,9 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool TryGet<TResult>(TKey key, Expression<Func<T, TResult>> selector, out TResult entity)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -511,7 +511,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
       try
       {
-        if (selector == null) throw new ArgumentNullException("selector");
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
         var context = new RepositoryQueryMultipleContext<T, TKey, TResult>(this, criteria, queryOptions, selector);
         if (!RunAspect(attribute => attribute.OnFindAllExecuting(context)))
@@ -554,7 +554,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public IEnumerable<TResult> FindAll<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions = null)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
       if (predicate == null) return GetAll(selector, queryOptions);
 
       try
@@ -576,7 +576,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (criteria == null) throw new ArgumentNullException("criteria");
+        if (criteria == null) throw new ArgumentNullException(nameof(criteria));
 
         var context = new RepositoryQuerySingleContext<T, TKey>(this, criteria, queryOptions);
         if (!RunAspect(attribute => attribute.OnFindExecuting(context)))
@@ -605,8 +605,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (criteria == null) throw new ArgumentNullException("criteria");
-        if (selector == null) throw new ArgumentNullException("selector");
+        if (criteria == null) throw new ArgumentNullException(nameof(criteria));
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
         var context = new RepositoryQuerySingleContext<T, TKey, TResult>(this, criteria, queryOptions, selector);
         if (!RunAspect(attribute => attribute.OnFindExecuting(context)))
@@ -618,7 +618,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
                 {
                   var result = FindQuery(context.Specification, context.QueryOptions);
                   if (result == null)
-                    return default(TResult);
+                    return default;
 
                   var results = new[] { result };
                   return results.AsEnumerable().Select(selectFunc).First();
@@ -643,7 +643,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool Exists(ISpecification<T> criteria)
     {
-      return TryFind(criteria, out T entity);
+      return TryFind(criteria, out _);
     }
 
     public bool TryFind(ISpecification<T> criteria, out T entity)
@@ -673,9 +673,9 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool TryFind<TResult>(ISpecification<T> criteria, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -692,7 +692,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (predicate == null) throw new ArgumentNullException("predicate");
+        if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
         return Find(CreateSpecification(predicate), queryOptions);
       }
@@ -707,8 +707,8 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (predicate == null) throw new ArgumentNullException("predicate");
-        if (selector == null) throw new ArgumentNullException("selector");
+        if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
         return Find(CreateSpecification(predicate), selector, queryOptions);
       }
@@ -721,7 +721,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool Exists(Expression<Func<T, bool>> predicate)
     {
-      return TryFind(predicate, out T entity);
+      return TryFind(predicate, out _);
     }
 
     public bool TryFind(Expression<Func<T, bool>> predicate, out T entity)
@@ -751,9 +751,9 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
 
     public bool TryFind<TResult>(Expression<Func<T, bool>> predicate, Expression<Func<T, TResult>> selector, IQueryOptions<T> queryOptions, out TResult entity)
     {
-      if (selector == null) throw new ArgumentNullException("selector");
+      if (selector == null) throw new ArgumentNullException(nameof(selector));
 
-      entity = default(TResult);
+      entity = default;
 
       try
       {
@@ -1397,12 +1397,12 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
         return key;
       }
 
-      return default(TKey);
+      return default;
     }
 
     protected virtual bool GetPrimaryKey(T entity, out TKey key)
     {
-      key = default(TKey);
+      key = default;
 
       var propInfo = GetPrimaryKeyPropertyInfo();
 

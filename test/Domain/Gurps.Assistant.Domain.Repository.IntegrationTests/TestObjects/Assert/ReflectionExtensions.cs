@@ -6,9 +6,7 @@ namespace Gurps.Assistant.Domain.Repository.IntegrationTests.TestObjects.Assert
   {
     public static string GetPropertyName(this LambdaExpression expression)
     {
-      var unaryExpression = expression.Body as UnaryExpression;
-
-      var memberExpression = unaryExpression != null
+      var memberExpression = expression.Body is UnaryExpression unaryExpression
                                               ? (MemberExpression)unaryExpression.Operand
                                               : (MemberExpression)expression.Body;
 

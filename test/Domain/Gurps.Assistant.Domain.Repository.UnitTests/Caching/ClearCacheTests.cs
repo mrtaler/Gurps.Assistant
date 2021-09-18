@@ -10,7 +10,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
 {
   public class ClearCacheTests
   {
-    private ICachingProvider cacheProvider;
+    private readonly ICachingProvider cacheProvider;
 
     public ClearCacheTests()
     {

@@ -10,7 +10,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Conventions
 {
   public class RepositoryConventionTests
   {
-    private ICachingProvider cacheProvider;
+    private readonly ICachingProvider cacheProvider;
 
     public RepositoryConventionTests()
     {

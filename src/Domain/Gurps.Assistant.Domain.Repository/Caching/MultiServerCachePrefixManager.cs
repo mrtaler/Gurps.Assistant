@@ -15,8 +15,7 @@
     {
       get
       {
-        int counter;
-        if (!_cachingProvider.Get(_key, out counter))
+        if (!_cachingProvider.Get(_key, out int counter))
         {
           counter = 1;
         }

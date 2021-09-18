@@ -44,7 +44,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching.Hash
     /// </summary>
     private class SubtreeEvaluator : ExpressionVisitor
     {
-      private HashSet<Expression> candidates;
+      private readonly HashSet<Expression> candidates;
 
       internal SubtreeEvaluator(HashSet<Expression> candidates)
       {
@@ -88,7 +88,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching.Hash
     /// </summary>
     class Nominator : ExpressionVisitor
     {
-      Func<Expression, bool> fnCanBeEvaluated;
+      readonly Func<Expression, bool> fnCanBeEvaluated;
       HashSet<Expression> candidates;
       bool cannotBeEvaluated;
 

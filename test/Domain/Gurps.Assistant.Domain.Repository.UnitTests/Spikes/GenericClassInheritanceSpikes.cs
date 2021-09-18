@@ -8,9 +8,9 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Spikes
     [Fact]
     public void SomeTest()
     {
-      IThing<Contact> thing = new Thing<Contact>();
-      IThing<Contact, int> thing2 = new Thing<Contact>();
-      IThing<Contact, string> thing3 = new Thing<Contact, string>();
+      _ = new Thing<Contact>();
+      _ = new Thing<Contact>();
+      _ = new Thing<Contact, string>();
     }
   }
 

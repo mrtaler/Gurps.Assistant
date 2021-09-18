@@ -15,7 +15,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
 
   public class InMemoryCachingTests : TestBase, IDisposable
   {
-    private ICachingProvider cacheProvider;
+    private readonly ICachingProvider cacheProvider;
 
     public InMemoryCachingTests()
     {
@@ -23,9 +23,12 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       cacheProvider = new InMemoryCachingProvider(new MemoryCache(new MemoryCacheOptions { }));
     }
 
+    protected virtual void Dispose(bool disposing) => cacheProvider.Dispose();
+
     public void Dispose()
     {
-      cacheProvider.Dispose();
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
 
     [Fact]

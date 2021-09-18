@@ -15,7 +15,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
     {
       try
       {
-        if (entity == null) throw new ArgumentNullException("entity");
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
 
         ProcessDelete(entity/*, BatchMode*/);
       }
@@ -93,7 +93,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBase
       {
         var entity = Get(key);
 
-        if (entity == null) throw new ArgumentException("No entity exists with this key.", "key");
+        if (entity == null) throw new ArgumentException("No entity exists with this key.", nameof(key));
 
         Delete(entity);
       }

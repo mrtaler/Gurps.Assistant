@@ -125,7 +125,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       //  originally was thinking doing a ref arg for queryOptions and setting it via cache but ran into an issue in QueryManager using a ref in a lamda expression
 
       // we only need to do this for PagingOptions because it has a TotalItems property that we need
-      if (!(queryOptions is IPagingOptions))
+      if (queryOptions is not IPagingOptions)
         return true;
 
       // there is a PagingOptions passed in so we want to make sure that both the results and the queryOptions are in cache
@@ -180,9 +180,9 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       {
         CachingProvider.Set(cacheKey, result);
 
-        if (queryOptions is IPagingOptions)
+        if (queryOptions is IPagingOptions options)
         {
-          CachingProvider.Set(cacheKey + "=>pagingTotal", ((IPagingOptions)queryOptions).TotalItems);
+          CachingProvider.Set(cacheKey + "=>pagingTotal", options.TotalItems);
         }
         //Trace.WriteLine(String.Format("Write item to cache: {0} - {1}", cacheKey, typeof(TCacheItem).Name));
       }

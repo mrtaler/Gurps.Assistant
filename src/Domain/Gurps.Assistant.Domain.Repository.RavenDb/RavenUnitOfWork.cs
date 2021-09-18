@@ -9,7 +9,7 @@ namespace Gurps.Assistant.Domain.Repository.RavenDb
   public partial class RavenUnitOfWork
       : UnitOfWorkBase<IDocumentSession, RavenDbContextFactory>
   {
-    private ILifetimeScope scope;
+    private readonly ILifetimeScope scope;
     public RavenUnitOfWork(ILifetimeScope container, RavenDbContextFactory dataContextFactory)
     {
       scope = container.BeginLifetimeScope();

@@ -25,7 +25,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching.Hash
           .ToLinkedList();
 
       // deal with instance methods
-      var instanceType = node.Object == null ? null : node.Object.Type;
+      var instanceType = node.Object?.Type;
       map.AddFirst(new { Param = instanceType, Arg = node.Object });
 
       // for any local collection parameters in the method, make a
@@ -51,7 +51,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching.Hash
       return base.VisitMethodCall(node);
     }
 
-    ConstantExpression MakePrinter(ConstantExpression enumerable, Type elementType)
+    static ConstantExpression MakePrinter(ConstantExpression enumerable, Type elementType)
     {
       var value = (IEnumerable)enumerable.Value;
       var printerType = typeof(Printer<>).MakeGenericType(elementType);

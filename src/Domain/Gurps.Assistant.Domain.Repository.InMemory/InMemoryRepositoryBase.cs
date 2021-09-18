@@ -69,8 +69,7 @@ namespace Gurps.Assistant.Domain.Repository.InMemory
     protected override void DeleteItem(T entity)
     {
       GetPrimaryKey(entity, out TKey pkValue);
-
-      items.TryRemove(pkValue, out T tmp);
+      items.TryRemove(pkValue, out _);
     }
 
     protected override void UpdateItem(T entity)
@@ -80,8 +79,14 @@ namespace Gurps.Assistant.Domain.Repository.InMemory
       items[pkValue] = entity;
     }
 
+    protected virtual void Dispose(bool disposing)
+    {
+    }
+
     public override void Dispose()
     {
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
 
     protected virtual TKey GeneratePrimaryKey()

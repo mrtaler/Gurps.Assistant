@@ -12,7 +12,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
 {
   public class TimeoutCachingStrategyTests : TestBase
   {
-    private ICachingProvider cacheProvider;
+    private readonly ICachingProvider cacheProvider;
 
     public TimeoutCachingStrategyTests()
     {

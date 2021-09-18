@@ -152,9 +152,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || entity == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var partitionName = partitionExpression.Member.Name;
@@ -180,9 +179,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || criteria == null || criteria.Predicate == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var matches = new List<TPartition>();
@@ -201,10 +199,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
 
     private static void RecurseExpressionTree(string memberName, Expression expression, ref List<TPartition> matches)
     {
-      var binaryExpression = expression as BinaryExpression;
-      var methodCallExpression = expression as MethodCallExpression;
-
-      if (binaryExpression != null)
+      if (expression is BinaryExpression binaryExpression)
       {
 
         var left = binaryExpression.Left;
@@ -214,11 +209,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         if (binaryExpression.NodeType == ExpressionType.Equal)
         {
           // check value is on the right
-          if (left is MemberExpression && ((MemberExpression)left).Member.Name == memberName)
+          if (left is MemberExpression expression1 && expression1.Member.Name == memberName)
           {
-            if (right is ConstantExpression)
+            if (right is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)right).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (right is MemberExpression)
@@ -234,11 +229,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
           }
 
           // check value is on the left
-          if (right is MemberExpression && ((MemberExpression)right).Member.Name == memberName)
+          if (right is MemberExpression expression12 && expression12.Member.Name == memberName)
           {
-            if (left is ConstantExpression)
+            if (left is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)left).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (left is MemberExpression)
@@ -257,7 +252,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         RecurseExpressionTree(memberName, left, ref matches);
         RecurseExpressionTree(memberName, right, ref matches);
       }
-      else if (methodCallExpression != null)
+      else if (expression is MethodCallExpression methodCallExpression)
       {
         if (methodCallExpression.NodeType != ExpressionType.Call || methodCallExpression.Method.Name != "Equals" || methodCallExpression.Arguments.Count != 1 || methodCallExpression.Arguments[0].Type != typeof(TPartition))
           return;
@@ -508,9 +503,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || entity == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var partitionName = partitionExpression.Member.Name;
@@ -535,9 +529,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || criteria == null || criteria.Predicate == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var matches = new List<TPartition>();
@@ -556,10 +549,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
 
     private static void RecurseExpressionTree(string memberName, Expression expression, ref List<TPartition> matches)
     {
-      var binaryExpression = expression as BinaryExpression;
-      var methodCallExpression = expression as MethodCallExpression;
-
-      if (binaryExpression != null)
+      if (expression is BinaryExpression binaryExpression)
       {
 
         var left = binaryExpression.Left;
@@ -569,11 +559,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         if (binaryExpression.NodeType == ExpressionType.Equal)
         {
           // check value is on the right
-          if (left is MemberExpression && ((MemberExpression)left).Member.Name == memberName)
+          if (left is MemberExpression expression1 && expression1.Member.Name == memberName)
           {
-            if (right is ConstantExpression)
+            if (right is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)right).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (right is MemberExpression)
@@ -589,11 +579,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
           }
 
           // check value is on the left
-          if (right is MemberExpression && ((MemberExpression)right).Member.Name == memberName)
+          if (right is MemberExpression expression12 && expression12.Member.Name == memberName)
           {
-            if (left is ConstantExpression)
+            if (left is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)left).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (left is MemberExpression)
@@ -612,7 +602,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         RecurseExpressionTree(memberName, left, ref matches);
         RecurseExpressionTree(memberName, right, ref matches);
       }
-      else if (methodCallExpression != null)
+      else if (expression is MethodCallExpression methodCallExpression)
       {
         if (methodCallExpression.NodeType != ExpressionType.Call || methodCallExpression.Method.Name != "Equals" || methodCallExpression.Arguments.Count != 1 || methodCallExpression.Arguments[0].Type != typeof(TPartition))
           return;
@@ -862,9 +852,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || entity == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var partitionName = partitionExpression.Member.Name;
@@ -890,9 +879,8 @@ namespace Gurps.Assistant.Domain.Repository.Caching
       if (Partition == null || criteria == null || criteria.Predicate == null)
         return false;
 
-      var partitionExpression = Partition.Body as MemberExpression;
 
-      if (partitionExpression == null)
+      if (Partition.Body is not MemberExpression partitionExpression)
         return false;
 
       var matches = new List<TPartition>();
@@ -911,10 +899,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
 
     private static void RecurseExpressionTree(string memberName, Expression expression, ref List<TPartition> matches)
     {
-      var binaryExpression = expression as BinaryExpression;
-      var methodCallExpression = expression as MethodCallExpression;
-
-      if (binaryExpression != null)
+      if (expression is BinaryExpression binaryExpression)
       {
 
         var left = binaryExpression.Left;
@@ -924,11 +909,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         if (binaryExpression.NodeType == ExpressionType.Equal)
         {
           // check value is on the right
-          if (left is MemberExpression && ((MemberExpression)left).Member.Name == memberName)
+          if (left is MemberExpression expression1 && expression1.Member.Name == memberName)
           {
-            if (right is ConstantExpression)
+            if (right is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)right).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (right is MemberExpression)
@@ -944,11 +929,11 @@ namespace Gurps.Assistant.Domain.Repository.Caching
           }
 
           // check value is on the left
-          if (right is MemberExpression && ((MemberExpression)right).Member.Name == memberName)
+          if (right is MemberExpression expression12 && expression12.Member.Name == memberName)
           {
-            if (left is ConstantExpression)
+            if (left is ConstantExpression expression2)
             {
-              matches.Add((TPartition)((ConstantExpression)left).Value);
+              matches.Add((TPartition)expression2.Value);
               return;
             }
             if (left is MemberExpression)
@@ -967,7 +952,7 @@ namespace Gurps.Assistant.Domain.Repository.Caching
         RecurseExpressionTree(memberName, left, ref matches);
         RecurseExpressionTree(memberName, right, ref matches);
       }
-      else if (methodCallExpression != null)
+      else if (expression is MethodCallExpression methodCallExpression)
       {
         if (methodCallExpression.NodeType != ExpressionType.Call || methodCallExpression.Method.Name != "Equals" || methodCallExpression.Arguments.Count != 1 || methodCallExpression.Arguments[0].Type != typeof(TPartition))
           return;

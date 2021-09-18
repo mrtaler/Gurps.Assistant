@@ -24,12 +24,16 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       CachingStrategy = new StandardCachingStrategyWithPartition<Contact, int, int>(cacheProvider, c => c.ContactTypeId) { CachePrefix = "#RepoStandardCacheWithPartition" };
     }
 
-    public void Dispose()
+    protected virtual void Dispose(bool disposing)
     {
       Cache.Dispose();
       Cache = null;
     }
-
+    public void Dispose()
+    {
+      Dispose(true);
+      GC.SuppressFinalize(this);
+    }
 
     [Fact]
     public void TryGetResult_First_Call_Should_Return_False()
@@ -72,7 +76,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       var contact = new Contact() { ContactId = 1, Name = "Test User" };
 
       CachingStrategy.SaveGetResult(1, contact);
-      CachingStrategy.TryGetResult(1, out Contact result).Should().Be(false);
+      CachingStrategy.TryGetResult(1, out _).Should().Be(false);
     }
 
     [Fact]
@@ -101,7 +105,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       var contact = new Contact() { ContactId = 1, Name = "Test User" };
 
       CachingStrategy.SaveGetAllResult(null, null, new[] { contact });
-      CachingStrategy.TryGetAllResult(null, null, out IEnumerable<Contact> result).Should().Be(false);
+      CachingStrategy.TryGetAllResult(null, null, out IEnumerable<Contact> _).Should().Be(false);
     }
 
     [Fact]
@@ -110,7 +114,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       var contact = new Contact() { ContactId = 1, Name = "Test User" };
 
       CachingStrategy.SaveGetAllResult(new SortingOptions<Contact>("Name"), null, new[] { contact });
-      CachingStrategy.TryGetAllResult(null, null, out IEnumerable<Contact> result).Should().Be(false);
+      CachingStrategy.TryGetAllResult(null, null, out IEnumerable<Contact> _).Should().Be(false);
     }
 
     [Fact]

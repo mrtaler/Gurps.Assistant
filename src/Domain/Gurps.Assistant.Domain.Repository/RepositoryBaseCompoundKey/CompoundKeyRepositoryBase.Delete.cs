@@ -12,7 +12,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Delete(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessDelete(entity);
     }
@@ -39,7 +39,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
     {
       var entity = Get(keys);
 
-      if (entity == null) throw new ArgumentException("No entity exists with these keys.", "keys");
+      if (entity == null) throw new ArgumentException("No entity exists with these keys.", nameof(keys));
 
       Delete(entity);
     }
@@ -62,7 +62,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Delete(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessDelete(entity);
     }
@@ -88,7 +88,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
     {
       var entity = Get(key, key2);
 
-      if (entity == null) throw new ArgumentException("No entity exists with this key.", "key");
+      if (entity == null) throw new ArgumentException("No entity exists with this key.", nameof(key));
 
       Delete(entity);
     }
@@ -111,7 +111,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
 
     public void Delete(T entity)
     {
-      if (entity == null) throw new ArgumentNullException("entity");
+      if (entity == null) throw new ArgumentNullException(nameof(entity));
 
       ProcessDelete(entity);
     }
@@ -137,7 +137,7 @@ namespace RolePlayedGamesHelper.Repository.SharpRepository.RepositoryBaseCompoun
     {
       var entity = Get(key, key2, key3);
 
-      if (entity == null) throw new ArgumentException("No entity exists with these keys.", "key");
+      if (entity == null) throw new ArgumentException("No entity exists with these keys.", nameof(key));
 
       Delete(entity);
     }

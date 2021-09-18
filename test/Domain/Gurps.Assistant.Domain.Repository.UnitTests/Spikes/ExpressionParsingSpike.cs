@@ -10,7 +10,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Spikes
 {
   public class ExpressionParsingSpike : TestBase
   {
-    private ICachingProvider cacheProvider;
+    private readonly ICachingProvider cacheProvider;
 
     public ExpressionParsingSpike()
     {

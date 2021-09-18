@@ -14,9 +14,9 @@ namespace Gurps.Assistant.Domain.Repository.Caching.Hash
     public static string ToMd5Fingerprint(this string s)
     {
       var bytes = Encoding.Unicode.GetBytes(s.ToCharArray());
-      using var md5 = SHA512Managed.Create();
+      using var sha512 = SHA512Managed.Create();
 
-      var hash = md5.ComputeHash(bytes);
+      var hash = sha512.ComputeHash(bytes);
 
       // concat the hash bytes into one long string
       return hash.Aggregate(new StringBuilder(32),

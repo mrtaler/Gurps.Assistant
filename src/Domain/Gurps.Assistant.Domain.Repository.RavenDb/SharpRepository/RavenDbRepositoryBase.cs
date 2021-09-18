@@ -21,12 +21,12 @@ namespace Gurps.Assistant.Domain.Repository.RavenDb.SharpRepository
         : base(cachingStrategy)
     {
       Session = session ?? throw new ArgumentNullException("dbContext");
-      /*  Initialize();*/
+      Initialize();
     }
 
 
 
-    private void Initialize()
+    private static void Initialize()
     {
     }
     /*
@@ -329,9 +329,12 @@ namespace Gurps.Assistant.Domain.Repository.RavenDb.SharpRepository
       // save changes will take care of it
     }
 
+    protected virtual void Dispose(bool disposing) => Session?.Dispose();
+
     public override void Dispose()
     {
-      Session?.Dispose();
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
 
     public override bool GenerateKeyOnAdd
