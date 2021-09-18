@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.0-release-candidate.8]() (2021-09-18)
+
+
+### Continuous Integration
+
+* update sem-ver ([ff7aca0]())
+
 ## [1.0.0-release-candidate.7]() (2021-09-18)
 
 
