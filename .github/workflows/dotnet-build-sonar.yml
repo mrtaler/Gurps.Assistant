@@ -78,13 +78,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=my-organization
-            -Dsonar.projectKey=my-projectkey
+            -Dsonar.organization=mrtaler-github
+            -Dsonar.projectKey=mrtaler_Gurps.Assistant
             -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=lib/
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
-            -Dsonar.verbose=true   
         #shell: powershell
         #run: |
         #  .\.sonar\scanner\dotnet-sonarscanner begin /k:"mrtaler_GurpsAssistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
