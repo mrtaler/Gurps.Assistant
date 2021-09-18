@@ -24,8 +24,6 @@ namespace Gurps.Assistant.Domain.Repository.RavenDb.SharpRepository
       Initialize();
     }
 
-
-
     private static void Initialize()
     {
     }
