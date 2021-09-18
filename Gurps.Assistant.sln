@@ -12,8 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{61937D10-03B6-48C9-8640-89D61AFAA033}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet-build.yml = .github\workflows\dotnet-build.yml
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\dotnet-build-sonar.yml = .github\workflows\dotnet-build-sonar.yml
+		.github\workflows\dotnet-semantic-tag-release.yml = .github\workflows\dotnet-semantic-tag-release.yml
 		.github\workflows\Test-Release-pull_request.yml = .github\workflows\Test-Release-pull_request.yml
 	EndProjectSection
 EndProject
@@ -29,6 +29,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SemanticVersioning", "Seman
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectConfiguration", "ProjectConfiguration", "{BA324555-7694-4887-947F-9375A1BAF9A0}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		NuGet.Config = NuGet.Config
+		Nuget.Default.props = Nuget.Default.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D72149E-2108-4929-88DD-C632867B70E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.UnitTests", "test\Gurps.Assistant.Domain.UnitTests\Gurps.Assistant.Domain.UnitTests.csproj", "{8589AC01-090D-4A9C-9269-37832DFEB221}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +51,10 @@ Global
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +63,8 @@ Global
 		{61937D10-03B6-48C9-8640-89D61AFAA033} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{DAA164C7-28A4-4FB2-A610-4065226F9F77} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{BA324555-7694-4887-947F-9375A1BAF9A0} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
+		{8589AC01-090D-4A9C-9269-37832DFEB221} = {9D72149E-2108-4929-88DD-C632867B70E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}
