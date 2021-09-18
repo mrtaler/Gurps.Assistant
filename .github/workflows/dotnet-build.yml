@@ -70,7 +70,10 @@ jobs:
           include-prerelease: true
       
       - name: Setup NuGet.exe for use with actions
-        uses: NuGet/setup-nuget@v1.0.2
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{secrets.NUGET_ARTIFACTS}}
+          nuget-version: 'latest'
       
       - name: Create MS SQL Database
         run: docker exec -i mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'MyPassword!' -Q 'CREATE DATABASE Test'
