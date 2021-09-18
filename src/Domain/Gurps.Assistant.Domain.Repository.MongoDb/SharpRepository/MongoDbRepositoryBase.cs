@@ -9,7 +9,6 @@ using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using Gurps.Assistant.Domain.Repository;
 using Gurps.Assistant.Domain.Repository.Caching;
 using Gurps.Assistant.Domain.Repository.FetchStrategies;
 using Gurps.Assistant.Domain.Repository.Helpers;

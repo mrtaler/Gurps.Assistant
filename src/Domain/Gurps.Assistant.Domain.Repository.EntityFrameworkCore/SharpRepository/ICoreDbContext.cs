@@ -1,5 +1,4 @@
-﻿using Gurps.Assistant.Domain.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Gurps.Assistant.Domain.Repository.EntityFrameworkCore.SharpRepository

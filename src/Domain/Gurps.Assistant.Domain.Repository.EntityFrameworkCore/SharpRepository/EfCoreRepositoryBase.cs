@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using Gurps.Assistant.Domain.Repository;
 using Gurps.Assistant.Domain.Repository.Caching;
 using Gurps.Assistant.Domain.Repository.FetchStrategies;
 
