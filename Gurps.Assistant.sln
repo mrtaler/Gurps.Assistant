@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.InMemory", "src\Domain\Gurps.Assistant.Domain.Repository.InMemory\Gurps.Assistant.Domain.Repository.InMemory.csproj", "{43BCD9A4-47E9-4E59-8304-2832833C20CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.IntegrationTests", "test\Domain\Gurps.Assistant.Domain.Repository.IntegrationTests\Gurps.Assistant.Domain.Repository.IntegrationTests.csproj", "{8F17579A-DB9F-4FB3-B966-9CC778AA484B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{04B8EDBA-7F74-40A8-AE84-CE97982F7BF9} = {9D72149E-2108-4929-88DD-C632867B70E4}
 		{7D5E0F2D-C3A8-489A-B43D-262932A5728D} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
 		{43BCD9A4-47E9-4E59-8304-2832833C20CD} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}

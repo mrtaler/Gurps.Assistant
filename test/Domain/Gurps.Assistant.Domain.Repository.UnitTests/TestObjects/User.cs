@@ -6,7 +6,6 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.TestObjects
   {
     public User()
     {
-
     }
 
     [Key]

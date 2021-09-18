@@ -6,8 +6,8 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.TestObjects.Assert.Primary
   {
     public UseAttributePrimaryKeyObject()
     {
-
     }
+
     [RepositoryPrimaryKey]
     public int SomeRandomName { get; set; }
     public string Value { get; set; }

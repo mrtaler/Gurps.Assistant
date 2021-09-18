@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Gurps.Assistant.Domain.Repository.Caching;
+using Gurps.Assistant.Domain.Repository.Specifications;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects.Assert;
 using Microsoft.Extensions.Caching.Memory;
@@ -22,8 +24,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Caching
       var provider = new InMemoryCachingProvider(cache);
       QueryManager = new QueryManager<Contact, int>(new StandardCachingStrategy<Contact, int>(provider)
       {
-        CachePrefix =
-                                                     "#RepoStandardCache"
+        CachePrefix = "#RepoStandardCache"
       });
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using FluentAssertions;
+using Gurps.Assistant.Domain.Repository.FetchStrategies;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects.Assert;
 using Xunit;

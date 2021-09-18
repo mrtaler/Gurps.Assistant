@@ -1,4 +1,6 @@
 ﻿using FluentAssertions;
+using Gurps.Assistant.Domain.Repository.Caching;
+using Gurps.Assistant.Domain.Repository.Specifications;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects.Assert;
 using Microsoft.Extensions.Caching.Memory;

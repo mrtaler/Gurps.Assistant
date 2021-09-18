@@ -4,8 +4,8 @@
   {
     public NoPrimaryKeyObject()
     {
-
     }
+
     public string Value { get; set; }
   }
 }

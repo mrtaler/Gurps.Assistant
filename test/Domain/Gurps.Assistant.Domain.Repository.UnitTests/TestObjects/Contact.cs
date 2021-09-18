@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Gurps.Assistant.Domain.Repository.Attributes;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gurps.Assistant.Domain.Repository.UnitTests.TestObjects

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using FluentAssertions;
 using Gurps.Assistant.Domain.Repository.Caching;
+using Gurps.Assistant.Domain.Repository.InMemory.RolePlayedGamesHelper.Repository.InMemoryRepository.SharpRepository;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects;
 using Microsoft.Extensions.Caching.Memory;
 using Xunit;

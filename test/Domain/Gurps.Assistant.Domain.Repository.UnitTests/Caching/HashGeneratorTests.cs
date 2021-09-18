@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using FluentAssertions;
+using Gurps.Assistant.Domain.Repository.Caching.Hash;
+using Gurps.Assistant.Domain.Repository.Specifications;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects;
 using Gurps.Assistant.Domain.Repository.UnitTests.TestObjects.Assert;
 using Xunit;
