@@ -1,5 +1,12 @@
 # Project Changelog
 
+## [1.0.0-release-candidate.15]() (2021-09-18)
+
+
+### Continuous Integration
+
+* update pipeline for manual .net build ([0ed0329]())
+
 ## [1.0.0-release-candidate.14]() (2021-09-18)
 
 
