@@ -1,11 +1,9 @@
 {
   "name": "gurps-assistant",
   "version": "0.0.0-development",
-  "dependencies": {
-    "semantic-release": "^17.4.7"
-  },
-  
+  "dependencies": {},
   "scripts": {
+    "prepare": "husky install",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -13,6 +11,16 @@
     "url": "https://github.com/mrtaler/Gurps.Assistant.git"
   },
   "devDependencies": {
-    "semantic-release": "^17.4.7"
-  }
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.0",
+    "@semantic-release/git": "^9.0.1",
+    "@semantic-release/github": "^8.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.1",
+    "husky": "^7.0.2",
+    "semantic-release": "^17.4.7",
+    "semantic-release-cli": "^5.4.4"
+  },
+  "main": "release.config.js"
 }

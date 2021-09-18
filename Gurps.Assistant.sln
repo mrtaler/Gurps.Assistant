@@ -26,13 +26,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SemanticVersioning", "Seman
 		SemanticVersioning\template.hbs = SemanticVersioning\template.hbs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{61937D10-03B6-48C9-8640-89D61AFAA033} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{DAA164C7-28A4-4FB2-A610-4065226F9F77} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
+		{11A29B85-1F43-4599-9F59-025CD0CF6B6B} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}

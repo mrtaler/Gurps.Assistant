@@ -24,3 +24,14 @@ mongo --username admin --password password
 
 yarn add semantic-release
 npx semantic-release-cli setup
+
+|npm| install| semantic-release-cli||
+|||@semantic-release/release-notes-generator||
+|||@semantic-release/github||
+|||@semantic-release/git||
+|||@semantic-release/commit-analyzer||
+|||@semantic-release/changelog||
+|||@commitlint/cli||
+|||@commitlint/config-conventional|echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js|
+||npm install husky --save-dev|npx husky install|npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'|
+
