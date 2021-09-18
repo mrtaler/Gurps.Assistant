@@ -13,9 +13,9 @@ namespace Gurps.Assistant.Domain.Repository.Helpers
     /// <param name="input">Input string</param>
     /// <param name="useEncoding">Encoding method</param>
     /// <returns>MD5 computed string</returns>
-    public static string CalculateMd5(string input, Encoding useEncoding)
+    public static string CalculateSHA512(string input, Encoding useEncoding)
     {
-      var md5 = MD5.Create();
+      var md5 = SHA512Managed.Create();
       var bytes = useEncoding.GetBytes(input);
       bytes = md5.ComputeHash(bytes);
       return BitConverter.ToString(bytes).Replace("-", "");
@@ -31,7 +31,7 @@ namespace Gurps.Assistant.Domain.Repository.Helpers
     {
       // That's just a shortcut to the base method
       var defaultEncoding = Encoding.GetEncoding(0);
-      return CalculateMd5(input, defaultEncoding);
+      return CalculateSHA512(input, defaultEncoding);
     }
   }
 }
