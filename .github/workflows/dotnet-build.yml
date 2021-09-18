@@ -9,7 +9,7 @@ on:
         default: '1.0.0-release-candidate.0'
 jobs:
   release:
-    name: "Publish to Github Package Registry"
+    name: "build and analays with sonar"
     runs-on: ubuntu-latest
     env:
       DOTNET_NOLOGO: true
