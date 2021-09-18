@@ -6,9 +6,9 @@ on:
       - master
       - pre/rc
       - develop
-      - feature/**
-      - hotfix/**
-      - release/**
+      #- feature/**
+      #- hotfix/**
+      #- release/**
 jobs:
   semantic-version:
     name: "Calculate Semantic version"
