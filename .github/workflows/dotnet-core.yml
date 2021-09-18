@@ -20,10 +20,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Set Git env
-        uses: allenevans/set-env@v1.0.0
-        with:
-          overwrite: true
-          GITHUB_TOKEN: ${{secrets.GIT_ARTIFACT_TOKEN}}
+        run: |
+          GITHUB_TOKEN=${{secrets.GIT_ARTIFACT_TOKEN}} >> $GITHUB_ENV
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
