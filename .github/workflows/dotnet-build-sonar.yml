@@ -64,23 +64,44 @@ jobs:
         run: |
           dotnet restore
           dotnet tool restore
-   
+      
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~\sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache SonarQube scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v1
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+      
+      - name: Install SonarQube scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+
       - name: Echo version
         if: ${{ env.NUGET_VERSION == null }}
         run: |
           echo "NUGET_VERSION=1.0.0-release-candidate.0" >> $GITHUB_ENV
           echo env.NUGET_VERSION
-
+      
       - name: Build and analyze
-        uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=mrtaler-github
-            -Dsonar.projectKey=mrtaler_Gurps.Assistant            
-            -Dsonar.sources=.
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"mrtaler_Gurps.Assistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build --configuration Release /p:Version=${{ env.NUGET_VERSION }}
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+
         #shell: powershell
         #run: |
         #  .\.sonar\scanner\dotnet-sonarscanner begin /k:"mrtaler_GurpsAssistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
