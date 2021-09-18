@@ -8,7 +8,6 @@
         "parserOpts": "./SemanticVersioning/parserOpts.js"
       }
     ],
-
     "@semantic-release/release-notes-generator",
     [
       "@semantic-release/changelog",
@@ -33,11 +32,13 @@
     [
       "@semantic-release/exec",
       {
-        "successCmd": "echo 'SEMVER_VERSION=${nextRelease.version}' > $GITHUB_ENV"
+        "successCmd": [
+          "echo 'SEMVER_VERSION=${nextRelease.version}' > $GITHUB_ENV",
+          "echo 'SEMVER_VERSION=${nextRelease.version}' > $GITHUB_ENV"
+        ]
       }
     ]
   ],
-
   "branches": [
     {
       "name": "master"
