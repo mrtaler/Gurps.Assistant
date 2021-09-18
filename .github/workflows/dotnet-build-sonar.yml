@@ -55,11 +55,6 @@ jobs:
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
-      - name: Update and set nuget sources
-      #dotnet nuget update source BoardGamesArtifacts -u 'Siarhei Linkevich' --store-password-in-clear-text -p ${{secrets.AZURE_ARTIFACTS_PAT}}
-        run: |
-          dotnet nuget update source nuget.org -u 'mrTaler' --store-password-in-clear-text -p ${{secrets.NUGET_ARTIFACTS}}
-          nuget sources add -name "AzureDevOpsArtifacts" -source "https://pkgs.dev.azure.com/SiarheiLinkevich/50d6e80a-d6b1-461f-b2ba-aa07e2362100/_packaging/BoardGamesArtifacts/nuget/v3/index.json" -username PATForPackages -password ${{secrets.AZURE_ARTIFACTS_PAT}}
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
@@ -67,6 +62,12 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
 
+#dotnet nuget update source BoardGamesArtifacts -u 'Siarhei Linkevich' --store-password-in-clear-text -p ${{secrets.AZURE_ARTIFACTS_PAT}}
+      - name: Update and set nuget sources      
+        run: |
+          dotnet nuget update source nuget.org -u 'mrTaler' --store-password-in-clear-text -p ${{secrets.NUGET_ARTIFACTS}}
+          nuget sources add -name "AzureDevOpsArtifacts" -source "https://pkgs.dev.azure.com/SiarheiLinkevich/50d6e80a-d6b1-461f-b2ba-aa07e2362100/_packaging/BoardGamesArtifacts/nuget/v3/index.json" -username PATForPackages -password ${{secrets.AZURE_ARTIFACTS_PAT}}
+      
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
