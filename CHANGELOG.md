@@ -1,5 +1,16 @@
 # Project Changelog
 
+## [1.0.0-release-candidate.5]() (2021-09-18)
+
+
+### Miscellaneous
+
+* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([d365ac0]())
+
+### Continuous Integration
+
+* update sem-ver ([d65c9e3]())
+
 ## [1.0.0-release-candidate.4]() (2021-09-18)
 
 
