@@ -41,6 +41,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D72149E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.UnitTests", "test\Gurps.Assistant.Domain.UnitTests\Gurps.Assistant.Domain.UnitTests.csproj", "{8589AC01-090D-4A9C-9269-37832DFEB221}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConfiguration", "TestConfiguration", "{4C241A49-0CB7-41AF-A8BA-3CEADB55974B}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+		test\Directory.Build.targets = test\Directory.Build.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +71,7 @@ Global
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
 		{BA324555-7694-4887-947F-9375A1BAF9A0} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{8589AC01-090D-4A9C-9269-37832DFEB221} = {9D72149E-2108-4929-88DD-C632867B70E4}
+		{4C241A49-0CB7-41AF-A8BA-3CEADB55974B} = {BA324555-7694-4887-947F-9375A1BAF9A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}
