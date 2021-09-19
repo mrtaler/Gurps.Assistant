@@ -31,9 +31,7 @@
     ]
   ],
   "branches": [
-    {
-      "name": "master"
-    },
+    "master",
     {
       "name": "hotfix/*",
       "channel": "hotfix/*",
@@ -41,7 +39,7 @@
     },
     {
       "name": "develop",
-      "channel": "develop",
+      "channel": "beta",
       "prerelease": "release-candidate"
     },
     {
