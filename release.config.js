@@ -127,7 +127,7 @@ writerOpts.commitPartial = readFile(resolve(__dirname, "SemanticVersioning/commi
 writerOpts.footerPartial = readFile(resolve(__dirname, "SemanticVersioning/footer.hbs"), "utf-8");
 
 
-/*var releaseRules = [
+var releaseRules = [
     { type: "docs", scope: "README", release: "patch" },
     { type: "refactor", scope: "core-*", release: "minor" },
     { type: "refactor", release: "patch" },
@@ -137,10 +137,10 @@ writerOpts.footerPartial = readFile(resolve(__dirname, "SemanticVersioning/foote
     { type: "style", release: "patch" },
     { type: "test", release: "patch" },
     { type: "fix", release: "patch" }
-];*/
+];
 
 module.exports = {
-    //releaseRules: releaseRules,
+    releaseRules: releaseRules,
     writerOpts: writerOpts,
     ...plugins
 };
