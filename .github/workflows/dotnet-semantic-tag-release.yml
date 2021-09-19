@@ -1,14 +1,15 @@
 name: "Semantic tag release"
-
 on:
+  workflow_dispatch:
+    branches:
+      - feature/**
+      - hotfix/**
+      - release/**
   push:
     branches:
       - master
       - pre/rc
       - develop
-      - feature/**
-      - hotfix/**
-      - release/**
 jobs:
   semantic-version:
     name: "Calculate Semantic version"

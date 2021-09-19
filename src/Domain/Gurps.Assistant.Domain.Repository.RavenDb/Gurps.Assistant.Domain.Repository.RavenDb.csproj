@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\Nuget.Default.props" />
+  <PropertyGroup>
+    <UseFxCopAnalyzers>false</UseFxCopAnalyzers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
+    <PackageReference Include="RavenDB.Client" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj" />
+  </ItemGroup>
+</Project>

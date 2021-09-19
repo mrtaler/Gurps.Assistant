@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RolePlayedGamesHelper.Repository.IntegrationTests": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "mssql": "Data Source=EPBYGOMW0360\\MSSQL_360;Integrated Security=True;Initial Catalog=Test;"
+      }
+    }
+  }
+}

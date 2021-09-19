@@ -12,7 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{61937D10-03B6-48C9-8640-89D61AFAA033}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\dotnet-build-sonar.yml = .github\workflows\dotnet-build-sonar.yml
+		.github\workflows\dotnet-semantic-tag-release.yml = .github\workflows\dotnet-semantic-tag-release.yml
 		.github\workflows\Test-Release-pull_request.yml = .github\workflows\Test-Release-pull_request.yml
 	EndProjectSection
 EndProject
@@ -26,7 +27,41 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SemanticVersioning", "Seman
 		SemanticVersioning\template.hbs = SemanticVersioning\template.hbs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Models", "src\Domain\Gurps.Assistant.Domain.Models\Gurps.Assistant.Domain.Models.csproj", "{11A29B85-1F43-4599-9F59-025CD0CF6B6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectConfiguration", "ProjectConfiguration", "{BA324555-7694-4887-947F-9375A1BAF9A0}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		NuGet.Config = NuGet.Config
+		Nuget.Default.props = Nuget.Default.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D72149E-2108-4929-88DD-C632867B70E4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.UnitTests", "test\Gurps.Assistant.Domain.UnitTests\Gurps.Assistant.Domain.UnitTests.csproj", "{8589AC01-090D-4A9C-9269-37832DFEB221}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConfiguration", "TestConfiguration", "{4C241A49-0CB7-41AF-A8BA-3CEADB55974B}"
+	ProjectSection(SolutionItems) = preProject
+		test\Directory.Build.props = test\Directory.Build.props
+		test\Directory.Build.targets = test\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository", "src\Domain\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj", "{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.RavenDb", "src\Domain\Gurps.Assistant.Domain.Repository.RavenDb\Gurps.Assistant.Domain.Repository.RavenDb.csproj", "{9B753B60-C195-4C87-951A-213DF30564CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.MongoDb", "src\Domain\Gurps.Assistant.Domain.Repository.MongoDb\Gurps.Assistant.Domain.Repository.MongoDb.csproj", "{A349175C-323E-4FF2-8C15-84E61A68055F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.EntityFrameworkCore", "src\Domain\Gurps.Assistant.Domain.Repository.EntityFrameworkCore\Gurps.Assistant.Domain.Repository.EntityFrameworkCore.csproj", "{71C474CD-F5CF-4A27-97E2-4B176494BFE2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.UnitTests", "test\Domain\Gurps.Assistant.Domain.Repository.UnitTests\Gurps.Assistant.Domain.Repository.UnitTests.csproj", "{7D5E0F2D-C3A8-489A-B43D-262932A5728D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.InMemory", "src\Domain\Gurps.Assistant.Domain.Repository.InMemory\Gurps.Assistant.Domain.Repository.InMemory.csproj", "{43BCD9A4-47E9-4E59-8304-2832833C20CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.IntegrationTests", "test\Domain\Gurps.Assistant.Domain.Repository.IntegrationTests\Gurps.Assistant.Domain.Repository.IntegrationTests.csproj", "{8F17579A-DB9F-4FB3-B966-9CC778AA484B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +73,38 @@ Global
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8589AC01-090D-4A9C-9269-37832DFEB221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B753B60-C195-4C87-951A-213DF30564CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A349175C-323E-4FF2-8C15-84E61A68055F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5E0F2D-C3A8-489A-B43D-262932A5728D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5E0F2D-C3A8-489A-B43D-262932A5728D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5E0F2D-C3A8-489A-B43D-262932A5728D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5E0F2D-C3A8-489A-B43D-262932A5728D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43BCD9A4-47E9-4E59-8304-2832833C20CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +113,17 @@ Global
 		{61937D10-03B6-48C9-8640-89D61AFAA033} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{DAA164C7-28A4-4FB2-A610-4065226F9F77} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
 		{11A29B85-1F43-4599-9F59-025CD0CF6B6B} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{BA324555-7694-4887-947F-9375A1BAF9A0} = {8F63F9A0-EC22-4424-AA94-1EDA43CA7000}
+		{8589AC01-090D-4A9C-9269-37832DFEB221} = {9D72149E-2108-4929-88DD-C632867B70E4}
+		{4C241A49-0CB7-41AF-A8BA-3CEADB55974B} = {BA324555-7694-4887-947F-9375A1BAF9A0}
+		{AC8700F3-1A13-4107-A32A-F4A92B5A27BC} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{9B753B60-C195-4C87-951A-213DF30564CE} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{A349175C-323E-4FF2-8C15-84E61A68055F} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{71C474CD-F5CF-4A27-97E2-4B176494BFE2} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{04B8EDBA-7F74-40A8-AE84-CE97982F7BF9} = {9D72149E-2108-4929-88DD-C632867B70E4}
+		{7D5E0F2D-C3A8-489A-B43D-262932A5728D} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
+		{43BCD9A4-47E9-4E59-8304-2832833C20CD} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
+		{8F17579A-DB9F-4FB3-B966-9CC778AA484B} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}
