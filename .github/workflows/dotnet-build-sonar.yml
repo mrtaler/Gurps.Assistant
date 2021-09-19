@@ -1,11 +1,10 @@
 name: "Build and Sonar Analysis"
 on:
-  push:
+  workflow_dispatch:
     branches:
       - feature/**
       - hotfix/**
       - release/**
-  workflow_dispatch:
     inputs:
       version:
         description: 'nuget package version'
@@ -65,17 +64,12 @@ jobs:
           dotnet tool restore
       - name: Create MS SQL Database
         run: docker exec -i mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'MyPassword!' -Q 'CREATE DATABASE Test'
-
-
-#dotnet nuget update source BoardGamesArtifacts -u 'Siarhei Linkevich' --store-password-in-clear-text -p ${{secrets.AZURE_ARTIFACTS_PAT}}
-      
       - name: Cache SonarQube packages
         uses: actions/cache@v1
         with:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-
       - name: Cache SonarQube scanner
         id: cache-sonar-scanner
         uses: actions/cache@v1
@@ -83,13 +77,11 @@ jobs:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-      
       - name: Install SonarQube scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
           dotnet tool install --global dotnet-sonarscanner
-
       - name: Echo version
         if: ${{ env.NUGET_VERSION == null }}
         run: |
@@ -100,7 +92,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         run: |
           dotnet sonarscanner begin /k:"mrtaler_Gurps.Assistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-      
       - name: Build and run unit tests
         env:         
           mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
@@ -108,36 +99,5 @@ jobs:
         run: |
           dotnet build --configuration Release /p:Version=${{ env.NUGET_VERSION }}
           dotnet test  --configuration Release --no-build --nologo --verbosity normal --collect:"XPlat Code Coverage" --logger:trx
-      
       - name: End Sonar scan
         run: dotnet sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
-
-        #shell: powershell
-        #run: |
-        #  .\.sonar\scanner\dotnet-sonarscanner begin /k:"mrtaler_GurpsAssistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        #  dotnet build  --configuration Release /p:Version=${{ env.NUGET_VERSION }}
-        #  .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-
-      - name: Test
-        env:
-          mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
-        run: dotnet test --configuration Release --no-build --nologo --verbosity normal --collect:"XPlat Code Coverage"
-      - uses: codecov/codecov-action@v1
-      #- name: Publish windows version
-      #  run: dotnet nuget push $GITHUB_WORKSPACE/Nugets/RolePlayedGamesHelper* --source "BoardGamesArtifacts" --api-key whatever --skip-duplicate
-      # - name: "Dotnet NuGet Push"
-        #  run: |
-        #    Get-ChildItem $GITHUB_WORKSPACE/Nugets/ -Filter *.nupkg |
-        #    Where-Object { $_.Name.Contains('RolePlayedGamesHelper') } |
-        #    ForEach-Object { dotnet nuget push $_ --source "BoardGamesArtifacts" --api-key whatever --skip-duplicate }
-        #  run: find $GITHUB_WORKSPACE/Nugets/ -type f -name 'RolePlayedGamesHelper.*.nupkg' | while read FILE ; do | dotnet nuget push ${FILE} --source "BoardGamesArtifacts" --api-key whatever --skip-duplicate done
-     #   run:
-      #    dotnet nuget push "**/RolePlayedGamesHelper.*.nupkg" --source "nuget.org" --api-key whatever --skip-duplicate **/*.nupkg
-          #   dotnet nuget push AppLogger.1.0.0.nupkg            --api-key qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 --source https://api.nuget.org/v3/index.json
-      - uses: actions/upload-artifact@v2
-        with:
-          path: Nugets/*
-
-
-
-
