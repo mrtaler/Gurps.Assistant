@@ -7,7 +7,7 @@ on:
       - release/**
 jobs:
   release:
-    name: "build and analays with sonar"
+    name: "build and Test"
     runs-on: ubuntu-latest
     env:
       DOTNET_NOLOGO: true
