@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0-release-candidate.1]() (2021-09-29)
+
+
+### Miscellaneous
+
+* Merge branch 'master' into develop ([293b2f7]())* Merge pull request #5 from mrtaler/feature/repository ([4dcf761]()), closes [#5]()* Merge pull request #4 from mrtaler/feature/repository ([09302f7]()), closes [#4]()* **version:** Release 1.0.0-feature-develop.1 ([670e7cf]())* **version:** Release 1.0.0-release-candidate.1 [skip ci] ([603f5a3]()), closes [#5]() [#4]() [#4]()* **version:** Release 1.0.0-release-candidate.2 [skip ci] ([f040fc2]())
+
+### Bug Fixes
+
+* fixed security hotspots from MD5 to SHA512 ([a07c2e7]())* fixed sonar alerts ([e35bde4]())* fixed sonar alerts ([6d420d8]())* update some nugets ([3c3e603]())* update some nugets ([190d187]())* update some nugets ([ba497fc]())
+
+### Continuous Integration
+
+* update CI ([18295ba]())* update CI ([85e917b]())* update CI ([6b6c29f]())* update pipeline for sonar ([6040166]())* update pipeline for sonar ([0606a88]())* update pipeline for sonar ([3fde32a]())* update pipeline for sonar ([508358d]())* update pipeline for sonar ([155de63]())* update pipeline for sonar ([24f2750]())* update pipeline for sonar ([184aaa7]())* update pipeline for sonar ([93e7aaa]())* update pipeline for sonar ([6ef39aa]())* update pipeline for sonar ([004c70b]())* update pipeline for sonar ([357bcc4]())* update pipeline for sonar ([db739ac]())* update pipeline for sonar ([6d4172b]())* update pipeline for sonar ([0677f6c]())* update pipeline for sonar ([aaeb219]())* update pipeline for sonar ([a007c97]())* update pipeline for sonar ([58c6699]())* update pipeline for sonar ([77b6d3a]())* update pipeline for sonar ([52f2d79]())* update pipeline for sonar ([4e8670d]())* update pipeline for sonar ([fabbd24]())* update pipeline for sonar ([f865b1a]())* update pipeline for sonar ([0d792d0]())* update pipeline for sonar ([b0ce043]())* update pipeline for sonar ([502636d]())* update pipeline for sonar ([9cba17b]())* update pipeline for sonar ([9434005]())* update semantic versioning config ([394b803]())* update semantic versioning config ([95671fd]())
+
+### Features
+
+* add sharp repository ([fb7f6e5]())* add test for sharp repository ([64985a6]())* add test for sharp repository ([02e2fde]())* add test for sharp repository ([fa5a87d]())* add test for sharp repository ([9c60894]())
+
 ## [1.0.0-release-candidate.2]() (2021-09-29)
 
 
