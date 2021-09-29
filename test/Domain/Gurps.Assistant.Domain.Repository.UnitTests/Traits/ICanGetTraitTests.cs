@@ -18,7 +18,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Traits
     public void ICanGet_Exposes_Get_By_Id()
     {
       var repo = new ContactRepository(
-                                           new ConcurrentDictionary<int, Contact>());
+        new ConcurrentDictionary<int, Contact>());
 
       var contact = new Contact { Name = "Test User", ContactTypeId = 1 };
       repo.Add(contact);
@@ -32,7 +32,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Traits
     public void ICanGet_Exposes_GetAll()
     {
       var repo = new ContactRepository(
-                                           new ConcurrentDictionary<int, Contact>());
+        new ConcurrentDictionary<int, Contact>());
 
       for (int i = 1; i <= 5; i++)
       {
@@ -48,7 +48,7 @@ namespace Gurps.Assistant.Domain.Repository.UnitTests.Traits
     public void ICanGet_Exposes_Get_With_Result()
     {
       var repo = new ContactRepository(
-                                                             new ConcurrentDictionary<int, Contact>());
+        new ConcurrentDictionary<int, Contact>());
 
       var contact = new Contact { Name = "Test User" };
       repo.Add(contact);

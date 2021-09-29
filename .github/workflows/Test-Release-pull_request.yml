@@ -71,6 +71,7 @@ jobs:
       - name: Build and run unit tests
         env:
           mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
+
         shell: pwsh
         run: |
           dotnet build --configuration Release /p:Version=${{ env.NUGET_VERSION }}

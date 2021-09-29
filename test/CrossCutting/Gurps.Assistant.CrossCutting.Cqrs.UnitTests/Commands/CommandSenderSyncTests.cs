@@ -169,7 +169,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
       sut.Send(createSomething);
       commandHandler.Verify(x => x.Handle(createSomething), Times.Once);
     }
-
+/*
     [Fact]
     public void Send_HandlesDomainCommand()
     {
@@ -177,7 +177,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
       domainCommandHandler.Verify(x => x.Handle(createAggregate), Times.Once);
     }
 
-    [Fact]
+   [Fact]
     public void Send_HandlesCommand_InCommandSequence()
     {
       sut.Send(sampleCommandSequence);
@@ -192,63 +192,63 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
     }
 
     [Fact]
-    public void Send_SavesCorrectData()
-    {
-      sut.Send(createAggregate);
+     public void Send_SavesCorrectData()
+     {
+       sut.Send(createAggregate);
 
-      storeDataSaved.AggregateType.Should().BeOfType(aggregate.GetType());
-      storeDataSaved.AggregateRootId.Should().Be(createAggregate.AggregateRootId);
-      storeDataSaved.Events.FirstOrDefault().Should().Be(aggregateCreated);
-      storeDataSaved.DomainCommand.Should().Be(createAggregate);
+       storeDataSaved.AggregateType.Should().BeOfType(aggregate.GetType());
+       storeDataSaved.AggregateRootId.Should().Be(createAggregate.AggregateRootId);
+       storeDataSaved.Events.FirstOrDefault().Should().Be(aggregateCreated);
+       storeDataSaved.DomainCommand.Should().Be(createAggregate);
 
-      /*
-      Assert.AreEqual(aggregate.GetType(), storeDataSaved.AggregateType);
-      Assert.AreEqual(createAggregate.AggregateRootId, storeDataSaved.AggregateRootId);
-      Assert.AreEqual(aggregateCreated, storeDataSaved.Events.FirstOrDefault());
-      Assert.AreEqual(createAggregate, storeDataSaved.DomainCommand);
-      */
-    }
 
-    [Fact]
-    public void Send_PublishesEvents()
-    {
-      sut.Send(createAggregate);
-      eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Once);
-    }
+       Assert.AreEqual(aggregate.GetType(), storeDataSaved.AggregateType);
+       Assert.AreEqual(createAggregate.AggregateRootId, storeDataSaved.AggregateRootId);
+       Assert.AreEqual(aggregateCreated, storeDataSaved.Events.FirstOrDefault());
+       Assert.AreEqual(createAggregate, storeDataSaved.DomainCommand);
 
-    [Fact]
-    public void Send_NotPublishesEvents_WhenSetInOptions()
-    {
-      mainOptionsMock
-          .Setup(x => x.Value)
-          .Returns(new Options { PublishEvents = false });
+     }
 
-      sut = new CommandSender(handlerResolver.Object,
-          eventPublisher.Object,
-          objectFactory.Object,
-          storeProvider.Object,
-          new Mock<IValidationService>().Object,
-          mainOptionsMock.Object);
+     [Fact]
+     public void Send_PublishesEvents()
+     {
+       sut.Send(createAggregate);
+       eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Once);
+     }
 
-      sut.Send(createAggregate);
-      eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Never);
-    }
+     [Fact]
+     public void Send_NotPublishesEvents_WhenSetInOptions()
+     {
+       mainOptionsMock
+           .Setup(x => x.Value)
+           .Returns(new Options { PublishEvents = false });
 
-    [Fact]
-    public void Send_NotPublishesEvents_WhenSetInCommand()
-    {
-      createAggregate.PublishEvents = false;
-      sut.Send(createAggregate);
-      eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Never);
-    }
+       sut = new CommandSender(handlerResolver.Object,
+           eventPublisher.Object,
+           objectFactory.Object,
+           storeProvider.Object,
+           new Mock<IValidationService>().Object,
+           mainOptionsMock.Object);
 
-    [Fact]
-    public void SendWithResult_ReturnsResult()
-    {
-      var actual = sut.Send<string>(createSomething);
-      actual.Should().Be("Result");
+       sut.Send(createAggregate);
+       eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Never);
+     }
 
-      // Assert.AreEqual("Result", actual);
-    }
+     [Fact]
+     public void Send_NotPublishesEvents_WhenSetInCommand()
+     {
+       createAggregate.PublishEvents = false;
+       sut.Send(createAggregate);
+       eventPublisher.Verify(x => x.Publish(aggregateCreatedConcrete), Times.Never);
+     }
+
+     [Fact]
+     public void SendWithResult_ReturnsResult()
+     {
+       var actual = sut.Send<string>(createSomething);
+       actual.Should().Be("Result");
+
+       // Assert.AreEqual("Result", actual);
+     }*/
   }
 }

@@ -178,7 +178,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
       commandHandlerAsync.Verify(x => x.HandleAsync(createSomething), Times.Once);
     }
 
-    [Fact]
+   /* [Fact]
     public async Task CreateAggregate_SendAsync_HandlesDomainCommand()
     {
       await sut.SendAsync(createAggregate);
@@ -207,12 +207,12 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
       storeDataSaved.AggregateRootId.Should().Be(createAggregate.AggregateRootId);
       storeDataSaved.Events.FirstOrDefault().Should().Be(aggregateCreated);
       storeDataSaved.DomainCommand.Should().Be(createAggregate);
-      /*
-      Assert.AreEqual(_aggregate.GetType(), _storeDataSaved.AggregateType);
-      Assert.AreEqual(_createAggregate.AggregateRootId, _storeDataSaved.AggregateRootId);
-      Assert.AreEqual(_aggregateCreated, _storeDataSaved.Events.FirstOrDefault());
-      Assert.AreEqual(_createAggregate, _storeDataSaved.DomainCommand);
-      */
+
+      //Assert.AreEqual(_aggregate.GetType(), _storeDataSaved.AggregateType);
+      //Assert.AreEqual(_createAggregate.AggregateRootId, _storeDataSaved.AggregateRootId);
+      //Assert.AreEqual(_aggregateCreated, _storeDataSaved.Events.FirstOrDefault());
+      //Assert.AreEqual(_createAggregate, _storeDataSaved.DomainCommand);
+
     }
 
     [Fact]
@@ -255,6 +255,6 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
       actual.Should().Be("Result");
 
       // Assert.AreEqual("Result", actual);
-    }
+    }*/
   }
 }
