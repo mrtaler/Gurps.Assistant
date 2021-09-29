@@ -19,8 +19,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Validation
     /// <inheritdoc />
     public async Task ValidateAsync(ICommand command)
     {
-      if (command == null)
-        throw new ArgumentNullException(nameof(command));
+      CheckCommand(command);
 
       var validationResponse = await _validationProvider.ValidateAsync(command);
 
@@ -31,8 +30,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Validation
     /// <inheritdoc />
     public void Validate(ICommand command)
     {
-      if (command == null)
-        throw new ArgumentNullException(nameof(command));
+      CheckCommand(command);
 
       var validationResponse = _validationProvider.Validate(command);
 
@@ -45,5 +43,12 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Validation
       var errorsText = errors.Select(x => $"\r\n - {x.ErrorMessage}").ToArray();
       return $"Validation failed: {string.Join("", errorsText)}";
     }
+
+    public void CheckCommand(ICommand command)
+    {
+      if (command == null)
+        throw new ArgumentNullException(nameof(command));
+    }
+
   }
 }

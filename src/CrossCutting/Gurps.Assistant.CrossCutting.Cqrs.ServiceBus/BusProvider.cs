@@ -23,7 +23,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.ServiceBus
     {
       if (string.IsNullOrEmpty(message.QueueName))
       {
-        throw new ApplicationException("Queue name is mandatory");
+        throw new ArgumentNullException("Queue name is mandatory");
       }
 
       var client = new QueueClient(new ServiceBusConnectionStringBuilder(connectionString)
@@ -42,7 +42,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.ServiceBus
     public async Task SendTopicMessageAsync<TMessage>(TMessage message) where TMessage : IBusTopicMessage
     {
       if (string.IsNullOrEmpty(message.TopicName))
-        throw new ApplicationException("Topic name is mandatory");
+        throw new ArgumentNullException("Topic name is mandatory");
 
       var client = new TopicClient(new ServiceBusConnectionStringBuilder(connectionString)
       {

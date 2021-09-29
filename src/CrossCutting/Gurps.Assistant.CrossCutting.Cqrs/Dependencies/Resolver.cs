@@ -17,15 +17,14 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Dependencies
     {
       return _serviceProvider.GetService<T>();
     }
+    public object Resolve(Type type)
+    {
+      return _serviceProvider.GetService(type);
+    }
 
     public IEnumerable<T> ResolveAll<T>()
     {
       return _serviceProvider.GetServices<T>();
-    }
-
-    public object Resolve(Type type)
-    {
-      return _serviceProvider.GetService(type);
     }
 
     public IEnumerable<object> ResolveAll(Type type)

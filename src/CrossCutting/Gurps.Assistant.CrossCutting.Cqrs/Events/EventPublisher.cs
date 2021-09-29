@@ -21,8 +21,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Events
     /// <inheritdoc />
     public async Task PublishAsync<TEvent>(TEvent @event) where TEvent : IEvent
     {
-      if (@event == null)
-        throw new ArgumentNullException(nameof(@event));
+      CheckEvent(@event);
 
       var handlers = _resolver.ResolveAll<IEventHandlerAsync<TEvent>>();
 
@@ -45,9 +44,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Events
     /// <inheritdoc />
     public void Publish<TEvent>(TEvent @event) where TEvent : IEvent
     {
-      if (@event == null)
-        throw new ArgumentNullException(nameof(@event));
-
+      CheckEvent(@event);
       var handlers = _resolver.ResolveAll<IEventHandler<TEvent>>();
 
       foreach (var handler in handlers)
@@ -64,6 +61,12 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Events
       {
         Publish(@event);
       }
+    }
+
+    private void CheckEvent<TEvent>(TEvent @event) where TEvent : IEvent
+    {
+      if (@event == null)
+        throw new ArgumentNullException(nameof(@event));
     }
   }
 }

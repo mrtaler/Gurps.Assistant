@@ -2,6 +2,7 @@
 
 namespace Gurps.Assistant.Domain.Repository.Configuration
 {
+  [Serializable]
   public class ConfigurationErrorsException : Exception
   {
     public ConfigurationErrorsException()

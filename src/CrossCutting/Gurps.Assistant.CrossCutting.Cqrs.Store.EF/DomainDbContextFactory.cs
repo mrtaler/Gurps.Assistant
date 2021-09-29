@@ -20,7 +20,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Store.EF
       var dataProvider = resolver.Resolve<IDatabaseProvider>();
 
       if (dataProvider == null)
-        throw new ApplicationException("Domain database provider not found.");
+        throw new ArgumentNullException("Domain database provider not found.");
 
       return dataProvider.CreateDbContext(connectionString);
     }

@@ -17,7 +17,7 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.UnitTests.Commands
 {
   public class CommandSenderSyncTests
   {
-    private ICommandSender sut;
+    private readonly ICommandSender sut;
 
     private readonly Mock<IHandlerResolver> handlerResolver;
     private readonly Mock<IEventPublisher> eventPublisher;

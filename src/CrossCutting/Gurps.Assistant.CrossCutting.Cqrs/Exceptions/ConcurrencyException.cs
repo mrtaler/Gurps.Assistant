@@ -2,6 +2,7 @@
 
 namespace Gurps.Assistant.CrossCutting.Cqrs.Exceptions
 {
+  [Serializable]
   public class ConcurrencyException : Exception
   {
     public ConcurrencyException(Guid aggregateRootId, int expectedVersion, int actualVersion)

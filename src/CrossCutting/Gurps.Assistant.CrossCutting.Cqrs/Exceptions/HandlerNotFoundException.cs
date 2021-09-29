@@ -2,6 +2,7 @@
 
 namespace Gurps.Assistant.CrossCutting.Cqrs.Exceptions
 {
+  [Serializable]
   public class HandlerNotFoundException : Exception
   {
     public HandlerNotFoundException(Type handlerType)

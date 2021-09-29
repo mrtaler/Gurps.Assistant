@@ -10,17 +10,17 @@ namespace Gurps.Assistant.CrossCutting.Cqrs.Store.EF
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      base.OnModelCreating(builder);
+      base.OnModelCreating(modelBuilder);
 
-      builder.Entity<AggregateEntity>()
+      modelBuilder.Entity<AggregateEntity>()
              .ToTable("DomainAggregate");
 
-      builder.Entity<CommandEntity>()
+      modelBuilder.Entity<CommandEntity>()
              .ToTable("DomainCommand");
 
-      builder.Entity<EventEntity>()
+      modelBuilder.Entity<EventEntity>()
              .ToTable("DomainEvent");
     }
 

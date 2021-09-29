@@ -2,6 +2,7 @@
 
 namespace Gurps.Assistant.Domain.Repository.Ioc
 {
+  [Serializable]
   public class RepositoryDependencyResolverException : Exception
   {
     public Type DependencyType { get; internal set; }
