@@ -1,9 +1,15 @@
+using System;
 using System.Security.Cryptography.X509Certificates;
 using Autofac;
 using Gurps.Assistant.Domain.Repository.Interfaces;
 using Gurps.Assistant.Domain.Repository.RavenDb;
 using Raven.Client.Documents;
+using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Session;
+using Raven.Client.Exceptions;
+using Raven.Client.Exceptions.Database;
+using Raven.Client.ServerWide;
+using Raven.Client.ServerWide.Operations;
 
 namespace Gurps.Assistant.Domain.Repository.IntegrationTests.Context.Modules
 {
@@ -14,22 +20,17 @@ namespace Gurps.Assistant.Domain.Repository.IntegrationTests.Context.Modules
       builder
           .Register((c) =>
           {
-            /* var x509 = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-             x509.Open(OpenFlags.ReadOnly);
-             var certificateSt = x509.Certificates.Find(X509FindType.FindByThumbprint, "4eda9df28ca6a3e3d15e59e91ae18e345824c3af", false)[0];
-             */
-            var certificateSt = new X509Certificate2(@"C:\CD\Certs\Raven\TalerRavenAzure.pfx",
-                                                           "123456789", X509KeyStorageFlags.MachineKeySet);
-
             var store = new DocumentStore
             {
-              Urls = new[] { "https://a.mrtaler.development.run" },
+              Urls = new[] { "http://localhost:8080" },
               Database = "GurpsData",
-              Conventions = { IdentityPartsSeparator = '-' },
-              Certificate = certificateSt
+              Conventions = { IdentityPartsSeparator = '-' }
             };
-            return store.Initialize();
-            ;
+            var documentStore = store.Initialize();
+
+            EnsureDatabaseExists(documentStore);
+
+            return documentStore;
           })
           .As<IDocumentStore>()
           .SingleInstance();
@@ -42,6 +43,33 @@ namespace Gurps.Assistant.Domain.Repository.IntegrationTests.Context.Modules
           .As<IDataContextFactory<IDocumentSession>>().SingleInstance();
 
       builder.RegisterType<RavenUnitOfWork>().As<IUnitOfWork<IDocumentSession, RavenDbContextFactory>>().AsSelf();
+    }
+    public void EnsureDatabaseExists(IDocumentStore store, string database = null, bool createDatabaseIfNotExists = true)
+    {
+      database = database ?? store.Database;
+
+      if (string.IsNullOrWhiteSpace(database))
+        throw new ArgumentException("Value cannot be null or whitespace.", nameof(database));
+
+      try
+      {
+        store.Maintenance.ForDatabase(database).Send(new GetStatisticsOperation());
+      }
+      catch (DatabaseDoesNotExistException)
+      {
+        if (createDatabaseIfNotExists == false)
+          throw;
+
+        try
+        {
+          store.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(database)));
+        }
+        catch (ConcurrencyException)
+        {
+          // The database was already created before calling CreateDatabaseOperation
+        }
+
+      }
     }
   }
 }

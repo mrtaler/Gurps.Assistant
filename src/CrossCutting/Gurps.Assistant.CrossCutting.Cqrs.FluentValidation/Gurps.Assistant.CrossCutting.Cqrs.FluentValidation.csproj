@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gurps.Assistant.CrossCutting.Cqrs\Gurps.Assistant.CrossCutting.Cqrs.csproj" />
+  </ItemGroup>
+</Project>

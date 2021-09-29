@@ -2,11 +2,16 @@
 <Project>
   <!--<Import Project="$(SolutionPath)\Directory.Build.props" Condition="Exists('$(SolutionPath)\Directory.Build.props')" />-->
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
-  <ItemGroup Label="ExcludeTestResults" >
+  
+    <ItemGroup Label="ExcludeTestResults" >
     <Compile Remove="TestResults\**" />
     <EmbeddedResource Remove="TestResults\**" />
     <None Remove="TestResults\**" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
 
   <PropertyGroup Label="CollectCodeCoverageResultsOnRelease">
     <CollectCoverage>true</CollectCoverage>

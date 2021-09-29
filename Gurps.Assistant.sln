@@ -49,19 +49,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestConfiguration", "TestCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository", "src\Domain\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj", "{AC8700F3-1A13-4107-A32A-F4A92B5A27BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.RavenDb", "src\Domain\Gurps.Assistant.Domain.Repository.RavenDb\Gurps.Assistant.Domain.Repository.RavenDb.csproj", "{9B753B60-C195-4C87-951A-213DF30564CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.RavenDb", "src\Domain\Gurps.Assistant.Domain.Repository.RavenDb\Gurps.Assistant.Domain.Repository.RavenDb.csproj", "{9B753B60-C195-4C87-951A-213DF30564CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.MongoDb", "src\Domain\Gurps.Assistant.Domain.Repository.MongoDb\Gurps.Assistant.Domain.Repository.MongoDb.csproj", "{A349175C-323E-4FF2-8C15-84E61A68055F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.MongoDb", "src\Domain\Gurps.Assistant.Domain.Repository.MongoDb\Gurps.Assistant.Domain.Repository.MongoDb.csproj", "{A349175C-323E-4FF2-8C15-84E61A68055F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.EntityFrameworkCore", "src\Domain\Gurps.Assistant.Domain.Repository.EntityFrameworkCore\Gurps.Assistant.Domain.Repository.EntityFrameworkCore.csproj", "{71C474CD-F5CF-4A27-97E2-4B176494BFE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.EntityFrameworkCore", "src\Domain\Gurps.Assistant.Domain.Repository.EntityFrameworkCore\Gurps.Assistant.Domain.Repository.EntityFrameworkCore.csproj", "{71C474CD-F5CF-4A27-97E2-4B176494BFE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.UnitTests", "test\Domain\Gurps.Assistant.Domain.Repository.UnitTests\Gurps.Assistant.Domain.Repository.UnitTests.csproj", "{7D5E0F2D-C3A8-489A-B43D-262932A5728D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.UnitTests", "test\Domain\Gurps.Assistant.Domain.Repository.UnitTests\Gurps.Assistant.Domain.Repository.UnitTests.csproj", "{7D5E0F2D-C3A8-489A-B43D-262932A5728D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.InMemory", "src\Domain\Gurps.Assistant.Domain.Repository.InMemory\Gurps.Assistant.Domain.Repository.InMemory.csproj", "{43BCD9A4-47E9-4E59-8304-2832833C20CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.InMemory", "src\Domain\Gurps.Assistant.Domain.Repository.InMemory\Gurps.Assistant.Domain.Repository.InMemory.csproj", "{43BCD9A4-47E9-4E59-8304-2832833C20CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.Domain.Repository.IntegrationTests", "test\Domain\Gurps.Assistant.Domain.Repository.IntegrationTests\Gurps.Assistant.Domain.Repository.IntegrationTests.csproj", "{8F17579A-DB9F-4FB3-B966-9CC778AA484B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gurps.Assistant.Domain.Repository.IntegrationTests", "test\Domain\Gurps.Assistant.Domain.Repository.IntegrationTests\Gurps.Assistant.Domain.Repository.IntegrationTests.csproj", "{8F17579A-DB9F-4FB3-B966-9CC778AA484B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{7D5511C2-B101-435A-83EF-389AA27DB84B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs", "src\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs\Gurps.Assistant.CrossCutting.Cqrs.csproj", "{061FD9EC-40EE-47E8-9494-D5354FCB5312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.ServiceBus", "src\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.ServiceBus\Gurps.Assistant.CrossCutting.Cqrs.ServiceBus.csproj", "{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.Store.EF", "src\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.Store.EF\Gurps.Assistant.CrossCutting.Cqrs.Store.EF.csproj", "{65C63280-E69B-4EB8-9AB5-65BC1E40B31F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.Store.RavenDb", "src\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.Store.RavenDb\Gurps.Assistant.CrossCutting.Cqrs.Store.RavenDb.csproj", "{7803C906-F46B-4998-A23C-3AE6905ADDEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.FluentValidation", "src\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.FluentValidation\Gurps.Assistant.CrossCutting.Cqrs.FluentValidation.csproj", "{809C4914-8E7E-4E94-B257-D89CA2E36D0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{E41C24E8-89BF-49D1-8BED-731D15077AAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.UnitTests", "test\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.UnitTests\Gurps.Assistant.CrossCutting.Cqrs.UnitTests.csproj", "{2F983609-6C22-4D69-9D1D-B7978F8324D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gurps.Assistant.CrossCutting.Cqrs.IntegrationTests", "test\CrossCutting\Gurps.Assistant.CrossCutting.Cqrs.IntegrationTests\Gurps.Assistant.CrossCutting.Cqrs.IntegrationTests.csproj", "{3B5F7431-BE69-4411-AB7C-A587170CD0EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +123,34 @@ Global
 		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F17579A-DB9F-4FB3-B966-9CC778AA484B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061FD9EC-40EE-47E8-9494-D5354FCB5312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061FD9EC-40EE-47E8-9494-D5354FCB5312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061FD9EC-40EE-47E8-9494-D5354FCB5312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061FD9EC-40EE-47E8-9494-D5354FCB5312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C63280-E69B-4EB8-9AB5-65BC1E40B31F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C63280-E69B-4EB8-9AB5-65BC1E40B31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C63280-E69B-4EB8-9AB5-65BC1E40B31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C63280-E69B-4EB8-9AB5-65BC1E40B31F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7803C906-F46B-4998-A23C-3AE6905ADDEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7803C906-F46B-4998-A23C-3AE6905ADDEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7803C906-F46B-4998-A23C-3AE6905ADDEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7803C906-F46B-4998-A23C-3AE6905ADDEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809C4914-8E7E-4E94-B257-D89CA2E36D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809C4914-8E7E-4E94-B257-D89CA2E36D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809C4914-8E7E-4E94-B257-D89CA2E36D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809C4914-8E7E-4E94-B257-D89CA2E36D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F983609-6C22-4D69-9D1D-B7978F8324D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F983609-6C22-4D69-9D1D-B7978F8324D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F983609-6C22-4D69-9D1D-B7978F8324D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F983609-6C22-4D69-9D1D-B7978F8324D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5F7431-BE69-4411-AB7C-A587170CD0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5F7431-BE69-4411-AB7C-A587170CD0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5F7431-BE69-4411-AB7C-A587170CD0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5F7431-BE69-4411-AB7C-A587170CD0EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,6 +170,14 @@ Global
 		{7D5E0F2D-C3A8-489A-B43D-262932A5728D} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
 		{43BCD9A4-47E9-4E59-8304-2832833C20CD} = {67F8584B-3B71-42BC-AD2F-7C331793085C}
 		{8F17579A-DB9F-4FB3-B966-9CC778AA484B} = {04B8EDBA-7F74-40A8-AE84-CE97982F7BF9}
+		{061FD9EC-40EE-47E8-9494-D5354FCB5312} = {7D5511C2-B101-435A-83EF-389AA27DB84B}
+		{8DB8E9E3-CD4C-4D50-BE89-909483BC2D39} = {7D5511C2-B101-435A-83EF-389AA27DB84B}
+		{65C63280-E69B-4EB8-9AB5-65BC1E40B31F} = {7D5511C2-B101-435A-83EF-389AA27DB84B}
+		{7803C906-F46B-4998-A23C-3AE6905ADDEA} = {7D5511C2-B101-435A-83EF-389AA27DB84B}
+		{809C4914-8E7E-4E94-B257-D89CA2E36D0B} = {7D5511C2-B101-435A-83EF-389AA27DB84B}
+		{E41C24E8-89BF-49D1-8BED-731D15077AAF} = {9D72149E-2108-4929-88DD-C632867B70E4}
+		{2F983609-6C22-4D69-9D1D-B7978F8324D7} = {E41C24E8-89BF-49D1-8BED-731D15077AAF}
+		{3B5F7431-BE69-4411-AB7C-A587170CD0EC} = {E41C24E8-89BF-49D1-8BED-731D15077AAF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13C6D0A5-5EE8-47D9-8DCC-DF7B83639770}

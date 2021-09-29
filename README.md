@@ -44,3 +44,27 @@ npx semantic-release-cli setup
 npm install --save-dev @commitlint/cli
 npm install --save-dev @commitlint/config-conventional
 npm install --save-dev @commitlint/prompt-cli
+
+docker run -p 8080:8080 ravendb/ravendb:latest
+
+
+ raven2:
+        container_name: raven2
+        image: ravendb/ravendb
+        ports:d
+            - 8082:8080
+            - 38889:38888
+        environment:
+            - RAVEN_Security_UnsecuredAccessAllowed=PrivateNetwork
+            - RAVEN_Setup_Mode=None
+            - RAVEN_License_Eula_Accepted=true
+            - "RAVEN_ServerUrl=http://0.0.0.0:8080"
+            - "RAVEN_PublicServerUrl=http://localhost:8082"
+            - "RAVEN_ServerUrl_Tcp=tcp://0.0.0.0:38888"
+            - "RAVEN_PublicServerUrl_Tcp=tcp://localhost:38889"
+
+
+            BIND_PORT=8080
+BIND_TCP_PORT=38888
+SECURITY_UNSECURED_ACCESS_ALLOW="PublicNetwork"
+ARGS="--Setup.Mode=Unsecured"
