@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0-release-candidate.4]() (2021-09-29)
+
+
+### Bug Fixes
+
+* update some nugets ([0c1bf23]())
+
 ## [1.1.0-release-candidate.3]() (2021-09-29)
 
 
