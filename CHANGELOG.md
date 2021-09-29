@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0-release-candidate.2]() (2021-09-29)
+
+
+### Miscellaneous
+
+* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([a4504d4]())
+
+### Bug Fixes
+
+* update some nugets ([d7ccbe9]())
+
 ## [1.1.0-release-candidate.1]() (2021-09-29)
 
 
