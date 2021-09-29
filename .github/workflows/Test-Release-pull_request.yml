@@ -5,6 +5,19 @@ jobs:
   build:
     name: "Test Release on pull_request with sonar"
     runs-on: ubuntu-latest
+    services:
+      ravendb:
+        image: ravendb/ravendb
+        ports:
+           - 8080/tcp
+        env:
+          RAVEN_Security_UnsecuredAccessAllowed: 'PublicNetwork'
+          RAVEN_Setup_Mode: 'Unsecured'
+          RAVEN_License_Eula_Accepted: 'true'
+          #RAVEN_ServerUrl: 'http://0.0.0.0:8080'
+          #RAVEN_PublicServerUrl: 'http://localhost:8082'
+          #RAVEN_ServerUrl_Tcp: 'tcp://0.0.0.0:38888'
+          #RAVEN_PublicServerUrl_Tcp: 'tcp://localhost:38889'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,7 +32,7 @@ jobs:
         with:
           nuget-api-key: ${{secrets.NUGET_ARTIFACTS}}
           nuget-version: 'latest'
-      - name: Update and set nuget sources      
+      - name: Update and set nuget sources
         run: |
           dotnet nuget update source nuget.org -u 'mrTaler' --store-password-in-clear-text -p ${{secrets.NUGET_ARTIFACTS}}
           nuget sources add -name "AzureDevOpsArtifacts" -source "https://pkgs.dev.azure.com/SiarheiLinkevich/50d6e80a-d6b1-461f-b2ba-aa07e2362100/_packaging/BoardGamesArtifacts/nuget/v3/index.json" -username PATForPackages -password ${{secrets.AZURE_ARTIFACTS_PAT}}
@@ -56,7 +69,7 @@ jobs:
         run: |
           dotnet sonarscanner begin /k:"mrtaler_Gurps.Assistant" /o:"mrtaler-github" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
       - name: Build and run unit tests
-        env:         
+        env:
           mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
         shell: pwsh
         run: |
