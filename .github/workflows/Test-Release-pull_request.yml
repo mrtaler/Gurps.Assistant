@@ -78,3 +78,4 @@ jobs:
           dotnet test  --configuration Release --no-build --nologo --verbosity normal --collect:"XPlat Code Coverage" --logger:trx
       - name: End Sonar scan
         run: dotnet sonarscanner end /d:sonar.login=${{ secrets.SONAR_TOKEN }}
+        
