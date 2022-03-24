@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0-release-candidate.5]() (2022-03-24)
+
+
+### Bug Fixes
+
+* some fixes ([97784df]())
+
 ## [1.1.0-release-candidate.4]() (2021-09-29)
 
 
