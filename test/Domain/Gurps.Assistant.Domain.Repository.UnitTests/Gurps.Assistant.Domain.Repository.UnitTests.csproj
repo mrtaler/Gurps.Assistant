@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="RavenDB.Client" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Domain\Gurps.Assistant.Domain.Repository.EntityFrameworkCore\Gurps.Assistant.Domain.Repository.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\..\src\Domain\Gurps.Assistant.Domain.Repository.InMemory\Gurps.Assistant.Domain.Repository.InMemory.csproj" />
+    <ProjectReference Include="..\..\..\src\Domain\Gurps.Assistant.Domain.Repository\Gurps.Assistant.Domain.Repository.csproj" />
+  </ItemGroup>
+
+
+</Project>

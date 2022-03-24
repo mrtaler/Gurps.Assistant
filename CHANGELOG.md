@@ -1,4 +1,98 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.1.0-release-candidate.5]() (2022-03-24)
+
+
+### Bug Fixes
+
+* some fixes ([97784df]())
+
+## [1.1.0-release-candidate.4]() (2021-09-29)
+
+
+### Bug Fixes
+
+* update some nugets ([0c1bf23]())
+
+## [1.1.0-release-candidate.3]() (2021-09-29)
+
+
+### Bug Fixes
+
+* update some nugets ([cc1371c]())
+
+## [1.1.0-release-candidate.2]() (2021-09-29)
+
+
+### Miscellaneous
+
+* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([a4504d4]())
+
+### Bug Fixes
+
+* update some nugets ([d7ccbe9]())
+
+## [1.1.0-release-candidate.1]() (2021-09-29)
+
+
+### Miscellaneous
+
+* Merge branch 'master' into develop ([293b2f7]())* Merge pull request #5 from mrtaler/feature/repository ([4dcf761]()), closes [#5]()* Merge pull request #4 from mrtaler/feature/repository ([09302f7]()), closes [#4]()* **version:** Release 1.0.0-feature-develop.1 ([670e7cf]())* **version:** Release 1.0.0-release-candidate.1 [skip ci] ([603f5a3]()), closes [#5]() [#4]() [#4]()* **version:** Release 1.0.0-release-candidate.2 [skip ci] ([f040fc2]())
+
+### Bug Fixes
+
+* fixed security hotspots from MD5 to SHA512 ([a07c2e7]())* fixed sonar alerts ([e35bde4]())* fixed sonar alerts ([6d420d8]())* update some nugets ([3c3e603]())* update some nugets ([190d187]())* update some nugets ([ba497fc]())
+
+### Continuous Integration
+
+* update CI ([18295ba]())* update CI ([85e917b]())* update CI ([6b6c29f]())* update pipeline for sonar ([6040166]())* update pipeline for sonar ([0606a88]())* update pipeline for sonar ([3fde32a]())* update pipeline for sonar ([508358d]())* update pipeline for sonar ([155de63]())* update pipeline for sonar ([24f2750]())* update pipeline for sonar ([184aaa7]())* update pipeline for sonar ([93e7aaa]())* update pipeline for sonar ([6ef39aa]())* update pipeline for sonar ([004c70b]())* update pipeline for sonar ([357bcc4]())* update pipeline for sonar ([db739ac]())* update pipeline for sonar ([6d4172b]())* update pipeline for sonar ([0677f6c]())* update pipeline for sonar ([aaeb219]())* update pipeline for sonar ([a007c97]())* update pipeline for sonar ([58c6699]())* update pipeline for sonar ([77b6d3a]())* update pipeline for sonar ([52f2d79]())* update pipeline for sonar ([4e8670d]())* update pipeline for sonar ([fabbd24]())* update pipeline for sonar ([f865b1a]())* update pipeline for sonar ([0d792d0]())* update pipeline for sonar ([b0ce043]())* update pipeline for sonar ([502636d]())* update pipeline for sonar ([9cba17b]())* update pipeline for sonar ([9434005]())* update semantic versioning config ([394b803]())* update semantic versioning config ([95671fd]())
+
+### Features
+
+* add sharp repository ([fb7f6e5]())* add test for sharp repository ([64985a6]())* add test for sharp repository ([02e2fde]())* add test for sharp repository ([fa5a87d]())* add test for sharp repository ([9c60894]())
+
+## [1.0.0-release-candidate.2]() (2021-09-29)
+
+
+### Bug Fixes
+
+* update some nugets ([3c3e603]())* update some nugets ([190d187]())* update some nugets ([ba497fc]())
+
+## 1.0.0-release-candidate.1 (2021-09-19)
+
+
+### Continuous Integration
+
+* added commit lint ([e6a6531]())* added commit lint ([c96b7eb]())* fix for env variables ([7c85931]())* update CI ([18295ba]())* update CI ([85e917b]())* update CI ([6b6c29f]())* update pipeline for manual .net build ([0dba8e8]())* update pipeline for manual .net build ([0ed0329]())* update pipeline for manual .net build ([f1dd5d9]())* update pipeline for sonar ([6040166]())* update pipeline for sonar ([0606a88]())* update pipeline for sonar ([3fde32a]())* update pipeline for sonar ([508358d]())* update pipeline for sonar ([155de63]())* update pipeline for sonar ([24f2750]())* update pipeline for sonar ([184aaa7]())* update pipeline for sonar ([93e7aaa]())* update pipeline for sonar ([6ef39aa]())* update pipeline for sonar ([004c70b]())* update pipeline for sonar ([357bcc4]())* update pipeline for sonar ([db739ac]())* update pipeline for sonar ([6d4172b]())* update pipeline for sonar ([0677f6c]())* update pipeline for sonar ([aaeb219]())* update pipeline for sonar ([a007c97]())* update pipeline for sonar ([58c6699]())* update pipeline for sonar ([77b6d3a]())* update pipeline for sonar ([52f2d79]())* update pipeline for sonar ([4e8670d]())* update pipeline for sonar ([fabbd24]())* update pipeline for sonar ([f865b1a]())* update pipeline for sonar ([0d792d0]())* update pipeline for sonar ([b0ce043]())* update pipeline for sonar ([502636d]())* update pipeline for sonar ([9cba17b]())* update pipeline for sonar ([9434005]())* update sem-ver ([21ee770]())* update sem-ver ([3fedf86]())* update sem-ver ([89198d1]())* update sem-ver ([90db5ee]())* update sem-ver ([de0c241]())* update sem-ver ([ff7aca0]())* update sem-ver ([0dcbd43]())* update sem-ver ([7689731]())* update sem-ver ([d65c9e3]())* update sem-ver ([aecde1d]())* update sem-ver ([cb04b50]())* update sem-ver ([f51fd56]())* update sem-ver init ([c7dcf56]())* update sem-ver init ([dd2779a]())* update semantic versioning config ([394b803]())* update semantic versioning config ([95671fd]())
+
+### Miscellaneous
+
+* Merge pull request #5 from mrtaler/feature/repository ([4dcf761]()), closes [#5]()* Merge pull request #4 from mrtaler/feature/repository ([09302f7]()), closes [#4]()* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([412381b]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([7151eee]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([dfafe52]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([946afc7]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([d365ac0]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([0e59f26]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([a53eb43]())* Add project files. ([4177e4e]())* Add .gitignore and .gitattributes. ([d4e1faa]())* **version:** Release 1.0.0-feature-develop.1 ([670e7cf]())* **version:** Release 1.0.0-release-candidate.1 ([31c9666]())* **version:** Release 1.0.0-release-candidate.10 ([631315d]())* **version:** Release 1.0.0-release-candidate.11 ([43a7d9c]())* **version:** Release 1.0.0-release-candidate.12 ([bcbc698]())* **version:** Release 1.0.0-release-candidate.13 ([0cf6af6]())* **version:** Release 1.0.0-release-candidate.14 ([f24fcd5]())* **version:** Release 1.0.0-release-candidate.15 ([4734632]())* **version:** Release 1.0.0-release-candidate.16 ([c4157bf]())* **version:** Release 1.0.0-release-candidate.2 ([6a20f5a]())* **version:** Release 1.0.0-release-candidate.3 ([48de00b]())* **version:** Release 1.0.0-release-candidate.4 ([5e72aa0]())* **version:** Release 1.0.0-release-candidate.5 ([ab9b5d8]())* **version:** Release 1.0.0-release-candidate.6 ([f6ab947]())* **version:** Release 1.0.0-release-candidate.7 ([546f3d7]())* **version:** Release 1.0.0-release-candidate.8 ([8cf1919]())* **version:** Release 1.0.0-release-candidate.9 ([1d99a8d]())
+
+### Bug Fixes
+
+* fixed security hotspots from MD5 to SHA512 ([a07c2e7]())* fixed sonar alerts ([e35bde4]())* fixed sonar alerts ([6d420d8]())
+
+### Features
+
+* add sharp repository ([fb7f6e5]())* add test for sharp repository ([64985a6]())* add test for sharp repository ([02e2fde]())* add test for sharp repository ([fa5a87d]())* add test for sharp repository ([9c60894]())* initial commit ([e72be7b]())
+
 # Project Changelog
+
+
+## 1.0.0-feature-develop.1 (2021-09-18)
+
+
+### Continuous Integration
+
+* added commit lint ([e6a6531]())* added commit lint ([c96b7eb]())* fix for env variables ([7c85931]())* update pipeline for manual .net build ([0dba8e8]())* update pipeline for manual .net build ([0ed0329]())* update pipeline for manual .net build ([f1dd5d9]())* update pipeline for sonar ([9434005]())* update sem-ver ([21ee770]())* update sem-ver ([3fedf86]())* update sem-ver ([89198d1]())* update sem-ver ([90db5ee]())* update sem-ver ([de0c241]())* update sem-ver ([ff7aca0]())* update sem-ver ([0dcbd43]())* update sem-ver ([7689731]())* update sem-ver ([d65c9e3]())* update sem-ver ([aecde1d]())* update sem-ver ([cb04b50]())* update sem-ver ([f51fd56]())* update sem-ver init ([c7dcf56]())* update sem-ver init ([dd2779a]())
+
+### Miscellaneous
+
+* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([412381b]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([7151eee]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([dfafe52]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([946afc7]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([d365ac0]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([0e59f26]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([a53eb43]())* Add project files. ([4177e4e]())* Add .gitignore and .gitattributes. ([d4e1faa]())* **version:** Release 1.0.0-release-candidate.1 ([31c9666]())* **version:** Release 1.0.0-release-candidate.10 ([631315d]())* **version:** Release 1.0.0-release-candidate.11 ([43a7d9c]())* **version:** Release 1.0.0-release-candidate.12 ([bcbc698]())* **version:** Release 1.0.0-release-candidate.13 ([0cf6af6]())* **version:** Release 1.0.0-release-candidate.14 ([f24fcd5]())* **version:** Release 1.0.0-release-candidate.15 ([4734632]())* **version:** Release 1.0.0-release-candidate.2 ([6a20f5a]())* **version:** Release 1.0.0-release-candidate.3 ([48de00b]())* **version:** Release 1.0.0-release-candidate.4 ([5e72aa0]())* **version:** Release 1.0.0-release-candidate.5 ([ab9b5d8]())* **version:** Release 1.0.0-release-candidate.6 ([f6ab947]())* **version:** Release 1.0.0-release-candidate.7 ([546f3d7]())* **version:** Release 1.0.0-release-candidate.8 ([8cf1919]())* **version:** Release 1.0.0-release-candidate.9 ([1d99a8d]())
 
 ## 1.0.0 (2021-09-18)
 
@@ -10,6 +104,7 @@
 ### Continuous Integration
 
 * added commit lint ([e6a6531]())* added commit lint ([c96b7eb]())* fix for env variables ([7c85931]())* update pipeline for manual .net build ([0dba8e8]())* update pipeline for manual .net build ([0ed0329]())* update pipeline for manual .net build ([f1dd5d9]())* update sem-ver ([21ee770]())* update sem-ver ([3fedf86]())* update sem-ver ([89198d1]())* update sem-ver ([90db5ee]())* update sem-ver ([de0c241]())* update sem-ver ([ff7aca0]())* update sem-ver ([0dcbd43]())* update sem-ver ([7689731]())* update sem-ver ([d65c9e3]())* update sem-ver ([aecde1d]())* update sem-ver ([cb04b50]())* update sem-ver ([f51fd56]())* update sem-ver init ([c7dcf56]())* update sem-ver init ([dd2779a]())
+
 
 ### Features
 

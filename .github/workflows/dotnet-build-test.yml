@@ -1,0 +1,66 @@
+name: "Build and Test"
+on:
+  push:
+    branches:
+      - feature/**
+      - hotfix/**
+      - release/**
+jobs:
+  release:
+    name: "build and Test"
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      GITHUB_TOKEN: ${{secrets.GIT_ARTIFACT_TOKEN}}
+      AZURE_ARTIFACTS_PAT: ${{secrets.AZURE_ARTIFACTS_PAT}}
+      NUGET_VERSION: ${{ github.event.inputs.version }}
+    services:
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          ACCEPT_EULA: Y
+          SA_PASSWORD: MyPassword!
+        ports:
+          - 1433:1433
+        options: >-
+          --name=mssql
+          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'MyPassword!' -Q 'SELECT 1' || exit 1"
+          --health-interval 10s
+          --health-timeout 3s
+          --health-retries 10
+          --health-start-period 10s
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      - name: Setup NuGet.exe for use with actions
+        uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{secrets.NUGET_ARTIFACTS}}
+          nuget-version: 'latest'
+      - name: Update and set nuget sources      
+        run: |
+          dotnet nuget update source nuget.org -u 'mrTaler' --store-password-in-clear-text -p ${{secrets.NUGET_ARTIFACTS}}
+          nuget sources add -name "AzureDevOpsArtifacts" -source "https://pkgs.dev.azure.com/SiarheiLinkevich/50d6e80a-d6b1-461f-b2ba-aa07e2362100/_packaging/BoardGamesArtifacts/nuget/v3/index.json" -username PATForPackages -password ${{secrets.AZURE_ARTIFACTS_PAT}}
+      - name: Install dependencies
+        run: |
+          dotnet restore
+          dotnet tool restore
+      #- name: Create MS SQL Database
+      #  run: docker exec -i mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'MyPassword!' -Q 'CREATE DATABASE Test'
+      - name: Echo version
+        if: ${{ env.NUGET_VERSION == null }}
+        run: |
+          echo "NUGET_VERSION=1.0.0-release-candidate.0" >> $GITHUB_ENV
+          echo env.NUGET_VERSION
+      - name: Build and run unit tests
+        env:         
+          mssql: "Data Source=localhost,1433;Initial Catalog=Test;User=sa;Password=MyPassword!;"
+        shell: pwsh
+        run: |
+          dotnet build --configuration Release /p:Version=${{ env.NUGET_VERSION }}
+          dotnet test  --configuration Release --no-build --nologo --verbosity normal --collect:"XPlat Code Coverage"
