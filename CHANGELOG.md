@@ -1,5 +1,20 @@
 # Project Changelog
 
+## 1.0.0 (2021-09-18)
+
+
+### Miscellaneous
+
+* Merge pull request #2 from mrtaler/develop ([5571e85]()), closes [#2]()* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([412381b]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([7151eee]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([dfafe52]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([946afc7]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([d365ac0]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([0e59f26]())* Merge branch 'develop' of https://github.com/mrtaler/Gurps.Assistant into develop ([a53eb43]())* Add project files. ([4177e4e]())* Add .gitignore and .gitattributes. ([d4e1faa]())* **version:** Release 1.0.0-release-candidate.1 ([31c9666]())* **version:** Release 1.0.0-release-candidate.10 ([631315d]())* **version:** Release 1.0.0-release-candidate.11 ([43a7d9c]())* **version:** Release 1.0.0-release-candidate.12 ([bcbc698]())* **version:** Release 1.0.0-release-candidate.13 ([0cf6af6]())* **version:** Release 1.0.0-release-candidate.14 ([f24fcd5]())* **version:** Release 1.0.0-release-candidate.15 ([4734632]())* **version:** Release 1.0.0-release-candidate.16 ([c4157bf]())* **version:** Release 1.0.0-release-candidate.2 ([6a20f5a]())* **version:** Release 1.0.0-release-candidate.3 ([48de00b]())* **version:** Release 1.0.0-release-candidate.4 ([5e72aa0]())* **version:** Release 1.0.0-release-candidate.5 ([ab9b5d8]())* **version:** Release 1.0.0-release-candidate.6 ([f6ab947]())* **version:** Release 1.0.0-release-candidate.7 ([546f3d7]())* **version:** Release 1.0.0-release-candidate.8 ([8cf1919]())* **version:** Release 1.0.0-release-candidate.9 ([1d99a8d]())
+
+### Continuous Integration
+
+* added commit lint ([e6a6531]())* added commit lint ([c96b7eb]())* fix for env variables ([7c85931]())* update pipeline for manual .net build ([0dba8e8]())* update pipeline for manual .net build ([0ed0329]())* update pipeline for manual .net build ([f1dd5d9]())* update sem-ver ([21ee770]())* update sem-ver ([3fedf86]())* update sem-ver ([89198d1]())* update sem-ver ([90db5ee]())* update sem-ver ([de0c241]())* update sem-ver ([ff7aca0]())* update sem-ver ([0dcbd43]())* update sem-ver ([7689731]())* update sem-ver ([d65c9e3]())* update sem-ver ([aecde1d]())* update sem-ver ([cb04b50]())* update sem-ver ([f51fd56]())* update sem-ver init ([c7dcf56]())* update sem-ver init ([dd2779a]())
+
+### Features
+
+* initial commit ([e72be7b]())
+
 ## [1.0.0-release-candidate.16]() (2021-09-18)
 
 
